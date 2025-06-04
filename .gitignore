@@ -38,5 +38,7 @@ jspm_packages/
 .next/
 /coverage/
 
-# Vite specific
+# Vite specific1
 .vite/
+# TypeScript Build Info (que adicionamos)
+*.tsbuildinfo

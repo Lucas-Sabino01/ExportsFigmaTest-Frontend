@@ -3,8 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://seunomeusuario.github.io/ValmetDayshop/",
-
+  "homepage": "https://lucas-sabino01.github.io/ExportsFigmaTest-Frontend/",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
@@ -12,7 +11,6 @@
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
-
   },
   "dependencies": {
     "@bryntum/demo-resources": "1.4.0",
@@ -51,7 +49,7 @@
   "devDependencies": {
     "@eslint/js": "^9.22.0",
     "@tailwindcss/postcss": "^4.1.5",
-    "@types/node": "^22.15.3",
+    "@types/node": "^22.15.29",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.0.4",
     "@types/react-modal": "^3.16.3",
