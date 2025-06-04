@@ -11,7 +11,7 @@ LocaleManager.applyLocale('PtBr');
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
 //<React.StrictMode>
-    <BrowserRouter> {/* Se usar router */}
+    <BrowserRouter basename="/ExportsFigmaTest-Frontend"> {/* Se usar router */}
       <AuthProvider>
         <App />
       </AuthProvider>
