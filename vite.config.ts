@@ -6,6 +6,7 @@ import { fileURLToPath } from "url";
 
 export default defineConfig({
   plugins: [react()],
+  base: '/ExportsFigmaTest-Frontend/',
   resolve: {
     alias: {
       // Configuração de alias para o diretório 'src'
