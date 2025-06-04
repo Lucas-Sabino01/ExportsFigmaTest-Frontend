@@ -1,0 +1,42 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# Production build output
+/dist
+/build
+/out
+/public/build # Se você estiver usando um bundler como Webpack que gera arquivos aqui
+
+# dotenv environment variables file
+.env
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+
+# misc
+.DS_Store
+.vscode/
+.idea/
+.vs/
+*.sqlite
+*.sqlite-journal
+*.db
+.cache/
+.eslintcache
+.parcel-cache/
+.next/
+/coverage/
+
+# Vite specific
+.vite/
