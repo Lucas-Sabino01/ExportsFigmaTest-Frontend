@@ -14,7 +14,7 @@
       "@pages/*": ["./src/pages/*"]
     },
     
-    /* Features do TypeScript (aplica-se a todos os projetos) */
+    /* Features do TypeScript */
     "strict": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
@@ -24,19 +24,16 @@
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     
-    /* Integração (aplica-se a todos os projetos) */
+    /* Integração */
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
-    "isolatedModules": true
+    "isolatedModules": true,
     
-    /* React - VERIFIQUE SE USA EMOTION. CASO CONTRÁRIO, REMOVA ESTA LINHA. */
-    // "jsxImportSource": "@emotion/react" 
+    /* React */
+    "jsxImportSource": "@emotion/react" // Verifique se usa Emotion. Se não, remova.
   },
-  
-  // REMOVA AS SEÇÕES "include", "outDir", "declaration", "sourceMap" DAQUI!
-  // Elas devem ser definidas SOMENTE nos arquivos referenciados (tsconfig.app.json e tsconfig.node.json).
-  
+
   "exclude": [
     "node_modules",
     "dist",

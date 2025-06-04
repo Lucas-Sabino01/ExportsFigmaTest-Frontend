@@ -42,3 +42,4 @@ jspm_packages/
 .vite/
 # TypeScript Build Info (que adicionamos)
 *.tsbuildinfo
+tsconfig.app.tsbuildinfo
