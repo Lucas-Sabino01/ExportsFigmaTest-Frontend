@@ -1,0 +1,614 @@
+/* Estilos para o Mapa da Valmet - VERSÃO AJUSTADA PARA O REACT ATUALIZADO */
+
+/* Reset e estilos gerais */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif; /* Uma fonte comum, ajuste se tiver uma específica */
+  overflow: hidden; /* Para evitar barras de rolagem na página inteira */
+  background-color: #f0f0f0; /* Cor de fundo base, se necessário - MODO CLARO */
+  color: #333; /* Cor de texto base - MODO CLARO */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Transição para dark mode */
+}
+
+/* Estilos para Dark Mode no body (exemplo, ajuste conforme sua implementação) */
+body.dark-mode {
+  background-color: #121212; /* Fundo bem escuro para dark mode */
+  color: #e0e0e0; /* Texto claro para dark mode */
+}
+
+/* Container principal do mapa geral */
+.mapa-geral-container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* Barra lateral */
+.mapa-sidebar {
+  width: 100px; /* Aumentado para 100px */
+  height: 100%;
+  background-color: #adcdb9; /* Verde claro da imagem de referência - MODO CLARO */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 0; /* Padding aumentado um pouco */
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+  z-index: 10;
+  transition: background-color 0.3s ease; /* Transição para dark mode */
+}
+
+/* Dark Mode para a Sidebar */
+body.dark-mode .mapa-sidebar { /* Aplicado quando body tem .dark-mode */
+  background-color: #2c3e50; /* Cor escura para a sidebar em dark mode */
+  box-shadow: 2px 0 5px rgba(0,0,0,0.3);
+}
+
+.mapa-logo img {
+  width: 60px; /* Aumentado para acompanhar a sidebar mais larga */
+  height: auto;
+}
+
+/* Estilos para os botões personalizados com efeito de glow (AGORA POR ID) */
+#mapaScreenCustomButton { /* Alterado de .custom-button para ID */
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px; /* Padding base */
+  border-radius: 15px;
+  font-family: 'Tauri', Helvetica, sans-serif; /* Certifique-se que esta fonte está importada ou disponível */
+  font-size: 16px; /* Tamanho da fonte base */
+  font-weight: 500;
+  border: 2px solid #009b3a; /* Verde Valmet - MODO CLARO */
+  box-shadow: -3px 7px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  background-color: rgba(255, 255, 255, 0.9); /* Fundo branco - MODO CLARO */
+  color: #007a2e; /* Texto verde escuro - MODO CLARO */
+}
+
+body.dark-mode #mapaScreenCustomButton { /* Alterado de .custom-button para ID */
+  background-color: rgba(52, 73, 94, 0.9); /* Fundo do botão em dark mode */
+  color: #bdc3c7; /* Cor do texto do botão em dark mode */
+  border-color: #009b3a; /* Cor da borda do botão em dark mode */
+}
+
+
+#mapaScreenCustomButton .button-text { /* Alterado de .custom-button para ID */
+  position: relative;
+  z-index: 2;
+  transition: color 0.3s ease;
+}
+
+#mapaScreenCustomButton::after { /* Alterado de .custom-button para ID */
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  background-color: #009b3a; /* Verde Valmet - MODO CLARO */
+  transition: all 0.3s ease;
+  z-index: 1;
+  border-radius: 0 0 13px 0;
+}
+
+body.dark-mode #mapaScreenCustomButton::after { /* Alterado de .custom-button para ID */
+  background-color: #009b3a; /* Cor do after em dark mode */
+}
+
+#mapaScreenCustomButton:hover { /* Alterado de .custom-button para ID */
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px 8px rgba(0, 155, 58, 0.6), -5px 18px 25px rgba(0, 0, 0, 0.2); 
+}
+
+body.dark-mode #mapaScreenCustomButton:hover { /* Alterado de .custom-button para ID */
+  box-shadow: 0 0 15px 5px rgba(22, 160, 133, 0.6), -3px 10px 15px rgba(0, 0, 0, 0.3); /* Sombra hover - DARK MODE */
+}
+
+#mapaScreenCustomButton:hover::after { /* Alterado de .custom-button para ID */
+  width: 100%;
+  height: 100%;
+  border-radius: 13px;
+}
+
+#mapaScreenCustomButton:hover .button-text { /* Alterado de .custom-button para ID */
+  color: white; /* Texto fica branco no hover por cima do ::after */
+}
+
+/* Estilo específico para o botão voltar personalizado na sidebar, usando a classe adicional */
+/* Este continua como classe, pois é uma modificação em cima do estilo base do ID */
+#mapaScreenCustomButton.mapa-voltar-button-custom {
+  width: 80%; 
+  padding: 12px 10px; 
+  font-size: 15px;   
+  margin-bottom: 25px; 
+  border-width: 2px;
+}
+
+/* Se você tiver um botão de configuração com a classe .config e o ID base */
+#mapaScreenCustomButton.config { /* Alterado de .custom-button para ID */
+  background-color: #009b3a; 
+}
+body.dark-mode #mapaScreenCustomButton.config { /* Alterado de .custom-button para ID */
+  background-color: #16a085;
+}
+
+#mapaScreenCustomButton.config .button-text { /* Alterado de .custom-button para ID */
+  color: white; 
+}
+
+#mapaScreenCustomButton.config:hover { /* Alterado de .custom-button para ID */
+  background-color: #007a2e; 
+  box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.4), -3px 10px 15px rgba(0, 0, 0, 0.2);
+}
+body.dark-mode #mapaScreenCustomButton.config:hover { /* Alterado de .custom-button para ID */
+  background-color: #117a65;
+   box-shadow: 0 0 15px 5px rgba(22, 160, 133, 0.5), -3px 10px 15px rgba(0, 0, 0, 0.3);
+}
+
+
+#mapaScreenCustomButton.config:hover::after { /* Alterado de .custom-button para ID */
+  background-color: #007a2e; 
+}
+body.dark-mode #mapaScreenCustomButton.config:hover::after { /* Alterado de .custom-button para ID */
+  background-color: #117a65;
+}
+
+
+/* Área de conteúdo principal */
+.mapa-main-content {
+  flex: 1;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.mapa-main-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.25); 
+  z-index: 0;
+  transition: background-color 0.3s ease;
+}
+
+body.dark-mode .mapa-main-content::before { 
+  background-color: rgba(0, 0, 0, 0.5); 
+}
+
+
+.mapa-content-overlay {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px 50px;
+  position: relative; 
+  z-index: 2;
+}
+
+.mapa-area-detail-card {
+  width: 36%;
+  min-height: 320px;
+  max-height: 65vh;
+  border-radius: 15px;
+  backdrop-filter: blur(10px) saturate(120%);
+  background: rgba(20, 20, 20, 0.55); /* MODO CLARO */
+  color: white;
+  padding: 30px 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  transition: background-color 0.3s ease;
+}
+
+body.dark-mode .mapa-area-detail-card { 
+  background: rgba(40, 40, 40, 0.65); 
+}
+
+
+.mapa-card-content-main .mapa-separator-main {
+  width: 100px;
+  height: 4px;
+  background-color: white;
+  margin-bottom: 20px;
+  border-radius: 2px;
+}
+
+.mapa-area-subtitle-main {
+  font-size: clamp(1.1rem, 2.2vw, 1.6rem); 
+  font-weight: 300;
+  margin-bottom: 8px;
+  opacity: 0.9;
+}
+
+.mapa-area-title-main {
+  font-size: clamp(2rem, 3.8vw, 3rem); 
+  font-weight: bold;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.mapa-area-description-main {
+  font-size: clamp(0.85rem, 1.7vw, 1.05rem); 
+  font-weight: 400;
+  line-height: 1.6;
+  opacity: 0.95;
+}
+
+.mapa-areas-carousel-wrapper {
+  width: 60%;
+  height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 20px;
+  overflow: hidden;
+}
+
+.mapa-areas-carousel {
+  display: flex;
+  gap: 18px;
+  padding: 10px 0;
+  align-items: center;
+}
+
+.mapa-area-card {
+  flex: 0 0 220px;
+  height: 300px;
+  border-radius: 12px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.35);
+  cursor: pointer;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, opacity 0.35s ease;
+  opacity: 0.7;
+}
+
+.mapa-area-card:hover {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  opacity: 1;
+}
+
+.mapa-area-card.active {
+  border: 3px solid #dfb213; /* MODO CLARO */
+  transform: scale(1.10) translateY(-5px);
+  box-shadow: 0 8px 20px rgba(223, 178, 19, 0.55); /* MODO CLARO */
+  opacity: 1;
+  z-index: 5;
+}
+
+body.dark-mode .mapa-area-card.active { 
+  border-color: #f1c40f; 
+  box-shadow: 0 8px 20px rgba(241, 196, 15, 0.6);
+}
+
+
+.mapa-card-content-carousel {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 18px 15px;
+  background: linear-gradient(to top, rgba(0,0,0,0.9) 25%, rgba(0,0,0,0) 100%);
+  color: white;
+}
+
+.mapa-card-content-carousel .mapa-separator-carousel {
+  width: 60px;
+  height: 3.5px;
+  background-color: white;
+  margin-bottom: 12px;
+  border-radius: 1.5px;
+}
+
+.mapa-card-title-carousel {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+  line-height: 1.3;
+}
+
+.mapa-navigation-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  background-color: rgba(0,0,0,0.05); /* MODO CLARO */
+  position: relative;
+  z-index: 3;
+  border-top: 1px solid rgba(255,255,255,0.08); /* MODO CLARO */
+  transition: background-color 0.3s ease, border-top-color 0.3s ease;
+}
+
+body.dark-mode .mapa-navigation-footer { 
+  background-color: rgba(20,20,20,0.2);
+  border-top-color: rgba(255,255,255,0.12);
+}
+
+
+.mapa-navigation-controls {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.mapa-yellow-circle {
+  width: 50px;
+  height: 50px;
+  background-color: #dfb213; /* MODO CLARO */
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  transition: background-color 0.3s ease;
+}
+body.dark-mode .mapa-yellow-circle { 
+  background-color: #f1c40f; 
+}
+
+
+.mapa-yellow-circle img {
+  width: 20px; 
+  height: auto;
+}
+
+.mapa-qual-area-button {
+  background-color: #009b3a; /* Verde Valmet - MODO CLARO */
+  color: white;
+  border: none;
+  border-radius: 25px; 
+  padding: 12px 28px;
+  font-size: 0.95rem; 
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.mapa-qual-area-button:hover {
+  background-color: #007a2e; 
+  transform: translateY(-2px);
+}
+
+body.dark-mode .mapa-qual-area-button { 
+  background-color: #16a085; 
+  color: #ecf0f1;
+}
+body.dark-mode .mapa-qual-area-button:hover { 
+  background-color: #117a65;
+}
+
+
+.mapa-carousel-controls-main {
+  display: flex;
+  align-items: center;
+  gap: 18px; 
+}
+
+.mapa-prev-button,
+.mapa-next-button {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: 2px solid white; /* MODO CLARO */
+  background-color: rgba(255,255,255,0.15); /* MODO CLARO */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, border-color 0.3s ease;
+}
+.mapa-prev-button:hover,
+.mapa-next-button:hover {
+  background-color: rgba(255,255,255,0.3); /* MODO CLARO */
+  transform: scale(1.1);
+}
+
+body.dark-mode .mapa-prev-button, 
+body.dark-mode .mapa-next-button {
+  border-color: #bdc3c7;
+  background-color: rgba(189, 195, 199, 0.2);
+}
+body.dark-mode .mapa-prev-button:hover, 
+body.dark-mode .mapa-next-button:hover {
+  background-color: rgba(189, 195, 199, 0.35);
+}
+
+
+.mapa-prev-button img,
+.mapa-next-button img {
+  width: 14px; 
+  height: auto;
+}
+
+
+.mapa-progress-bar {
+  display: flex;
+  width: 220px;
+  height: 5px;
+  background-color: rgba(255, 255, 255, 0.25); /* MODO CLARO */
+  border-radius: 2.5px;
+  overflow: hidden; 
+  transition: background-color 0.3s ease;
+}
+body.dark-mode .mapa-progress-bar { 
+  background-color: rgba(189, 195, 199, 0.25);
+}
+
+
+.mapa-progress-segment {
+  flex: 1;
+  height: 100%;
+  background-color: transparent; 
+  margin: 0 0.5px; 
+  transition: background-color 0.4s ease;
+}
+
+.mapa-progress-segment.active {
+  background-color: white; /* MODO CLARO */
+}
+body.dark-mode .mapa-progress-segment.active { 
+  background-color: #bdc3c7; 
+}
+
+
+.mapa-page-indicator {
+  font-size: clamp(4rem, 12vw, 6.5rem);
+  font-weight: bold;
+  color: white; 
+  opacity: 0.85; 
+  line-height: 0.8;
+  text-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+/* Ajustes de responsividade (exemplo) */
+@media (max-width: 1366px) {
+    .mapa-area-detail-card {
+        width: 40%;
+    }
+    .mapa-areas-carousel-wrapper {
+        width: 55%;
+    }
+    .mapa-page-indicator {
+        font-size: clamp(3.5rem, 10vw, 6rem);
+    }
+}
+
+
+@media (max-width: 1200px) {
+  .mapa-content-overlay {
+    padding: 30px 30px;
+    flex-direction: column; 
+    align-items: center;
+    gap: 30px;
+    overflow-y: auto; 
+  }
+  .mapa-area-detail-card {
+    width: 80%; 
+    max-width: 550px;
+    order: 1; 
+    min-height: auto;
+    max-height: none;
+  }
+  .mapa-areas-carousel-wrapper {
+    width: 100%;
+    justify-content: center; 
+    order: 2; 
+    height: auto;
+    padding-left: 0;
+  }
+  .mapa-areas-carousel {
+    justify-content: flex-start; 
+    padding: 10px;
+    max-width: calc(100vw - 40px);
+  }
+  .mapa-area-card {
+    flex: 0 0 190px;
+    height: 270px;
+  }
+  .mapa-navigation-footer {
+    padding: 15px 30px;
+    flex-wrap: wrap; 
+    justify-content: center;
+    gap: 20px;
+  }
+  .mapa-page-indicator {
+    font-size: clamp(3rem, 8vw, 4.5rem);
+    order: 3;
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+  }
+  .mapa-carousel-controls-main {
+      order: 2;
+  }
+  .mapa-navigation-controls {
+      order: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .mapa-sidebar {
+    width: 65px; 
+    padding: 20px 0;
+  }
+  .mapa-logo img {
+    width: 40px;
+  }
+  /* Seletor por ID: #botao-voltar-sidebar */
+  /* A classe .mapa-voltar-button-custom já está a ser usada, o ID é mais para JS se necessário */
+  #mapaScreenCustomButton.mapa-voltar-button-custom { /* Estilizando o botão voltar com ID e classe */
+    width: 90%;
+    font-size: 12px; 
+    padding: 8px 5px; 
+  }
+  .mapa-content-overlay {
+    padding: 20px 15px;
+    gap: 20px;
+  }
+  .mapa-area-detail-card {
+    width: 95%;
+    padding: 20px 25px;
+  }
+  .mapa-area-title-main {
+    font-size: clamp(1.6rem, 5vw, 2.2rem);
+  }
+  .mapa-area-subtitle-main {
+    font-size: clamp(0.9rem, 4vw, 1.2rem);
+  }
+  .mapa-area-description-main {
+    font-size: clamp(0.8rem, 3.5vw, 0.95rem);
+  }
+  .mapa-area-card {
+    flex-basis: 170px; 
+    height: 250px;
+  }
+  .mapa-card-title-carousel {
+    font-size: 1rem;
+  }
+  .mapa-navigation-footer {
+    padding: 15px;
+    gap: 15px;
+  }
+  .mapa-qual-area-button {
+    padding: 10px 20px;
+    font-size: 0.85rem;
+  }
+  .mapa-prev-button,
+  .mapa-next-button {
+    width: 40px;
+    height: 40px;
+  }
+  .mapa-prev-button img,
+  .mapa-next-button img {
+    width: 10px;
+  }
+  .mapa-progress-bar {
+    width: 160px;
+    height: 4px;
+  }
+  .mapa-page-indicator {
+     font-size: clamp(2.5rem, 7vw, 3.5rem);
+  }
+}

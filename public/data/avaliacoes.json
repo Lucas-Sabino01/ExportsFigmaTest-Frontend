@@ -1,0 +1,107 @@
+{
+  "success": true,
+  "project": {
+    "name": "Avaliações de Qualidade",
+    "calendar": "industrial",
+    "startDate": "2025-04-01",
+    "hoursPerDay": 8,
+    "daysPerWeek": 5,
+    "daysPerMonth": 22
+  },
+  "tasks": {
+    "rows": [
+      {
+        "id": 1000,
+        "name": "Avaliações - Abril/2025",
+        "expanded": true,
+        "children": [
+          {
+            "id": 1,
+            "name": "Avaliação: TUBO RETO ALETADO (OP: AS4573)",
+            "itemAvaliado": "TUBO RETO ALETADO",
+            "opReferencia": "AS4573",
+            "resultado": "Conforme",
+            "dataAvaliacao": "2025-04-26",
+            "responsavel": "João Silva",
+            "observacoes": "Avaliação final realizada antes da expedição.",
+            "startDate": "2025-04-26",
+            "duration": 1,
+            "endDate": "2025-04-26"
+          },
+          {
+            "id": 2,
+            "name": "Avaliação: ANEL LANTERNA (OP: A42802)",
+            "itemAvaliado": "ANEL LANTERNA",
+            "opReferencia": "A42802",
+            "resultado": "Conforme",
+            "dataAvaliacao": "2025-04-09",
+            "responsavel": "Maria Oliveira",
+            "observacoes": "Inspeção dimensional e visual ok.",
+            "startDate": "2025-04-09",
+            "duration": 1,
+            "endDate": "2025-04-09"
+          },
+          {
+            "id": 3,
+            "name": "Avaliação: BICAS SMECT (OP: AS4569)",
+            "itemAvaliado": "BICAS SMECT",
+            "opReferencia": "AS4569",
+            "resultado": "Conforme",
+            "dataAvaliacao": "2025-04-29",
+            "responsavel": "Pedro Souza",
+            "observacoes": "Testes de funcionamento realizados.",
+            "startDate": "2025-04-29",
+            "duration": 1,
+            "endDate": "2025-04-29"
+          },
+          {
+            "id": 4,
+            "name": "Avaliação: FAB. DISCO & EIXO (OP: A42784)",
+            "itemAvaliado": "FAB. DISCO & EIXO",
+            "opReferencia": "A42784",
+            "resultado": "Não Conforme Parcial",
+            "dataAvaliacao": "2025-05-08",
+            "responsavel": "Ana Costa",
+            "observacoes": "Pequena divergência dimensional no disco. Necessário retrabalho.",
+            "startDate": "2025-05-08",
+            "duration": 1,
+            "endDate": "2025-05-08"
+          }
+        ]
+      }
+    ]
+  },
+  "resources": {
+    "rows": [
+      { "id": "QUAL", "name": "Equipe de Qualidade" }
+    ]
+  },
+  "assignments": {
+    "rows": [
+      { "id": 1, "event": 1, "resource": "QUAL" },
+      { "id": 2, "event": 2, "resource": "QUAL" },
+      { "id": 3, "event": 3, "resource": "QUAL" },
+      { "id": 4, "event": 4, "resource": "QUAL" }
+    ]
+  },
+  "calendars": {
+    "rows": [
+      {
+        "id": "industrial",
+        "name": "Calendário Industrial",
+        "intervals": [
+          {
+            "recurrentStartDate": "on Sat at 0:00",
+            "recurrentEndDate": "on Mon at 0:00",
+            "isWorking": false
+          },
+          {
+            "recurrentStartDate": "every weekday at 12:00",
+            "recurrentEndDate": "every weekday at 13:00",
+            "isWorking": false
+          }
+        ]
+      }
+    ]
+  }
+}

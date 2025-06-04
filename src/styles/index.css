@@ -1,0 +1,295 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer components {
+  .all-\[unset\] {
+    all: unset;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 47.4% 11.2%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 47.4% 11.2%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 210 40% 98%;
+    --ring: 215 20.2% 65.
+  }
+  .dark {
+    --background: 224 71% 4%;
+    --foreground: 213 31% 91%;
+
+    --muted: 223 47% 11%;
+    --muted-foreground: 215.4 16.3% 56.9%;
+
+    --accent: 216 34% 17%;
+    --accent-foreground: 210 40% 98%;
+
+    --popover: 224 71% 4%;
+    --popover-foreground: 215 20.2% 65.1%;
+
+    --border: 216 34% 17%;
+    --input: 216 34% 17%;
+
+    --card: 224 71% 4%; 
+    --card-foreground: 213 31% 91%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 1.2%;
+
+    --secondary: 222.2 47.4% 11.2%;
+    --secondary-foreground: 210 40% 98%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 216 34% 17%;
+
+    --radius: 0.5rem;
+  }
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+.font-roboto { /* Classe utilitária se precisar aplicar Roboto especificamente */
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Container principal do teclado com o seu tema customizado */
+.myVirtualKeyboardTheme {
+  background-color: #2D3748; /* Cinza escuro para o fundo do teclado (Tailwind bg-gray-800) */
+  border-radius: 0.75rem;    /* rounded-xl */
+  padding: 1rem;             /* p-4 */
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); /* shadow-2xl */
+}
+
+/* Estilo geral para todas as teclas */
+.myVirtualKeyboardTheme .hg-button {
+  font-family: 'Roboto', sans-serif;
+  height: 55px;
+  font-size: 18px;
+  background-color: #F9FAFB; /* Cinza muito claro, quase branco (Tailwind bg-gray-50) */
+  color: #1F2937;           /* Cinza escuro para o texto (Tailwind text-gray-800) */
+  border: 1px solid #D1D5DB; /* Borda cinza clara (Tailwind border-gray-300) */
+  border-bottom-width: 2px;
+  border-radius: 0.375rem;   /* rounded-md */
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
+  transition: all 0.15s ease-in-out;
+  display: flex; /* Para centralizar o conteúdo da tecla se necessário */
+  align-items: center;
+  justify-content: center;
+}
+
+.myVirtualKeyboardTheme .hg-button:hover {
+  background-color: #F3F4F6; /* Cinza um pouco mais escuro no hover (Tailwind bg-gray-100) */
+  border-color: #9CA3AF;    /* (Tailwind border-gray-400) */
+}
+
+.myVirtualKeyboardTheme .hg-button:active {
+  background-color: #E5E7EB; /* Cinza mais escuro ao clicar (Tailwind bg-gray-200) */
+  transform: translateY(1px);
+  border-bottom-width: 1px;
+  box-shadow: none;
+}
+
+/* Estilo para teclas de função (ex: Shift, Tab, Caps, Backspace) */
+.myVirtualKeyboardTheme .hg-button.hg-functionBtn,
+.myVirtualKeyboardTheme .hg-button.hg-button-bksp {
+  background-color: #D1D5DB; /* Cinza claro (Tailwind bg-gray-300) */
+  color: #1F2937;           /* Texto escuro */
+  border-color: #9CA3AF;    /* Borda cinza média */
+}
+
+.myVirtualKeyboardTheme .hg-button.hg-functionBtn:hover,
+.myVirtualKeyboardTheme .hg-button.hg-button-bksp:hover {
+  background-color: #9CA3AF; /* Cinza médio no hover (Tailwind bg-gray-400) */
+  color: white;
+}
+
+.myVirtualKeyboardTheme .hg-button.hg-functionBtn:active,
+.myVirtualKeyboardTheme .hg-button.hg-button-bksp:active {
+  background-color: #6B7280; /* Cinza mais escuro (Tailwind bg-gray-500) */
+}
+
+/* Estilo específico para a tecla de Espaço */
+.myVirtualKeyboardTheme .hg-button.hg-button-space {
+  background-color: #F9FAFB; /* Mesma cor das teclas normais */
+  color: #1F2937;
+  border-color: #D1D5DB;
+  flex-grow: 5 !important; 
+}
+.myVirtualKeyboardTheme .hg-button.hg-button-space:hover {
+  background-color: #F3F4F6;
+  border-color: #9CA3AF;
+}
+.myVirtualKeyboardTheme .hg-button.hg-button-space:active {
+  background-color: #E5E7EB;
+}
+
+
+/* Estilo específico para a tecla Enter */
+.myVirtualKeyboardTheme .hg-button.hg-button-enter {
+  background-color: #009B3A !important; /* Sua cor verde base */
+  color: white !important;
+  border-color: #007A2E !important; /* Tom um pouco mais escuro de verde para a borda */
+  border-bottom-width: 2px !important;
+  flex-grow: 2 !important;
+}
+.myVirtualKeyboardTheme .hg-button.hg-button-enter:hover {
+  background-color: #008230 !important; /* Verde mais escuro no hover */
+  border-color: #006424 !important;
+}
+.myVirtualKeyboardTheme .hg-button.hg-button-enter:active {
+  background-color: #006424 !important; /* Verde ainda mais escuro ao clicar */
+  transform: translateY(1px) !important;
+  border-bottom-width: 1px !important;
+}
+
+/* Linhas do teclado */
+.myVirtualKeyboardTheme .hg-row {
+  display: flex;
+  justify-content: center; 
+}
+
+.myVirtualKeyboardTheme .hg-row .hg-button:not(:last-child) {
+  margin-right: 6px; /* Espaçamento entre as teclas */
+}
+
+.myVirtualKeyboardTheme .hg-row:not(:last-child) {
+  margin-bottom: 6px; /* Espaçamento entre as linhas */
+}
+
+/* Estilo para o botão "Fechar" customizado (dentro do cabeçalho do teclado) */
+.close-keyboard-button {
+  background-color: white !important;
+  color: black !important;
+  border: 1px solid #D1D5DB !important; /* Cinza claro (Tailwind border-gray-300) */
+  padding: 0.25rem 0.75rem !important;  /* py-1 px-3 */
+  font-size: 1rem !important;       /* text-xs */
+  font-weight: 500 !important;         /* font-medium */
+  border-radius: 0.375rem !important;  /* rounded-md */
+  margin-bottom: 1rem !important;
+  height: auto !important;
+  line-height: normal !important;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
+  transition: background-color 0.15s ease-in-out;
+  cursor: pointer !important;
+}
+
+.close-keyboard-button:hover {
+  background-color: #F3F4F6 !important; /* Cinza muito claro no hover (Tailwind bg-gray-100) */
+}
+.close-keyboard-button:active {
+  background-color: #E5E7EB !important; /* Cinza claro no active (Tailwind bg-gray-200) */
+}
+
+.txt-tecladovirtual{
+  color: #FFF !important;
+  padding: 0.25rem 0.75rem !important;  /* py-1 px-3 */
+  font-size: 1rem !important;       /* text-xs */
+  font-weight: 500 !important;         /* font-medium */
+  border-radius: 0.375rem !important;  /* rounded-md */
+  height: auto !important;
+  margin-bottom: 0.8rem !important;
+  line-height: normal !important;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
+  transition: background-color 0.15s ease-in-out;
+}
+/* Container principal */
+    .views-container {
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        transition: all 0.3s ease-in-out;
+    }
+    
+    /* Botão toggle */
+    .b-button[data-ref="toggleViewsButton"] {
+        transition: transform 0.3s ease-in-out;
+    }
+    
+    /* Botões de visualização */
+    .b-button[data-ref^="view"],
+    .b-button[data-ref="dayShopButton"] {
+        transition: all 0.3s ease-in-out;
+        opacity: 1;
+        transform: translateX(0);
+        margin-left: 8px;
+    }
+    
+    /* Estado oculto */
+    .view-button-hidden {
+        opacity: 0 !important;
+        transform: translateX(-10px) !important;
+        margin-left: 0 !important;
+        width: 0 !important;
+        padding: 0 !important;
+        border: none !important;
+        pointer-events: none;
+    }
+    
+    /* Separador */
+    [data-ref="viewsSeparator"] {
+        transition: all 1s ease-in-out;
+    }
+    
+    .view-button-hidden[data-ref="viewsSeparator"] {
+        opacity: 0;
+        width: 0;
+        margin: 0;
+    }
+    .custom-toolbar {
+    display: flex;
+    gap: 8px;
+    padding: 10px;
+    background: #f5f5f5;
+    border-bottom: 1px solid #ddd;
+    
+    .b-button {
+        padding: 5px 10px;
+        border-radius: 4px;
+        transition: all 0.2s;
+        
+        &:hover {
+            background: #e0e0e0;
+        }
+        
+        &.b-active {
+            background: #3498db;
+            color: white;
+        }
+    }
+}
+
+/* Transição suave para mudança de colunas */
+.b-grid-header-container {
+    transition: all 0.3s ease;
+}
+
+.b-panel-body {
+  overflow: hidden !important;
+}
+
+.b-panel-content {
+  contain: none !important;
+}
+
+
+              

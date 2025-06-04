@@ -1,0 +1,1076 @@
+/* styles/Configuracoes.css */
+
+/* Estilos para a tela de Configurações com escopo isolado */
+/* Todos os seletores são prefixados com #configuracoes-page para evitar conflitos */
+
+/* Reset e estilos gerais */
+#configuracoes-page {
+  --primary-color: #009b3a;
+  --primary-hover: #007c2e;
+  --secondary-color: #2563eb;
+  --secondary-hover: #1d4ed8;
+  --danger-color: #dc2626;
+  --danger-hover: #b91c1c;
+  --success-color: #10b981;
+  --warning-color: #f59e0b;
+  --error-color: #ef4444;
+
+  /* Cores para MODO CLARO */
+  --text-primary-light: #1e293b;
+  --text-secondary-light: #64748b;
+  --text-light-light: #94a3b8;
+  --border-color-light: #e2e8f0;
+  --bg-page-light: #f8fafc; /* Fundo da página no modo claro */
+  --bg-content-light: #ffffff; /* Fundo de cards, inputs no modo claro */
+  --bg-sidebar-main-light: #1a2234; /* Sidebar principal da aplicação (já é escura) */
+  --text-sidebar-main-light: rgba(255, 255, 255, 0.7);
+  --bg-config-nav-light: #ffffff; /* Fundo da navegação interna de Configurações */
+  --text-config-nav-light: var(--text-secondary-light);
+  --border-config-nav-light: var(--border-color-light);
+
+
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --transition: all 0.2s ease;
+  
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: var(--text-primary-light);
+  line-height: 1.5;
+  box-sizing: border-box;
+}
+
+#configuracoes-page * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+#configuracoes-page.configuracoes-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--bg-page-light); /* MODO CLARO - Fundo da página inteira */
+}
+
+/* Sidebar Principal da Aplicação (app-sidebar) */
+#configuracoes-page .app-sidebar {
+  width: 250px; /* Largura consistente com outras sidebars */
+  background-color: var(--bg-sidebar-main-light); 
+  color: var(--text-sidebar-main-light);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 1000; /* Acima do conteúdo principal */
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+  transition: var(--transition);
+}
+#configuracoes-page .app-sidebar-header {
+  display: flex;
+  align-items: center;
+  padding: 20px 24px; 
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+#configuracoes-page .app-sidebar-logo img { 
+  height: 40px; 
+  width: auto;
+}
+#configuracoes-page .app-sidebar-logo {
+  margin-right: 12px; 
+}
+#configuracoes-page .app-sidebar-title {
+  font-size: 20px; 
+  font-weight: 600;
+  color: #ffffff; 
+}
+#configuracoes-page .app-nav {
+  flex: 1;
+  margin-top: 24px; 
+  padding: 0 16px; 
+}
+#configuracoes-page .app-nav-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px; 
+  margin-bottom: 8px; 
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: var(--transition);
+  color: var(--text-sidebar-main-light);
+}
+#configuracoes-page .app-nav-item .app-nav-icon svg { 
+  stroke: currentColor;
+}
+#configuracoes-page .app-nav-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+#configuracoes-page .app-nav-item.app-nav-item-active {
+  background-color: var(--primary-color);
+  color: white;
+}
+#configuracoes-page .app-nav-icon {
+  margin-right: 14px; 
+}
+#configuracoes-page .app-nav-text {
+  font-size: 0.9rem; /* 14.4px */
+  font-weight: 500;
+}
+#configuracoes-page .app-user-profile {
+  padding: 1rem;
+  margin: 1rem; /* 16px */
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: auto;
+}
+#configuracoes-page .app-user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.75rem;
+  color: white; /* Cor do ícone do avatar */
+}
+#configuracoes-page .app-user-info {
+  flex: 1;
+  min-width: 0;
+}
+#configuracoes-page .app-user-name {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: white;
+}
+#configuracoes-page .app-user-role {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+
+/* Conteúdo principal da página de Configurações */
+#configuracoes-page .main-content-config { /* Nome da classe usado no JSX */
+  flex: 1;
+  margin-left: 250px; /* Mesma largura da .app-sidebar */
+  padding: 2rem; /* 32px */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--bg-page-light); /* MODO CLARO */
+  color: var(--text-primary-light); /* MODO CLARO */
+}
+
+/* Cabeçalho da página de Configurações */
+#configuracoes-page .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Alinha itens no topo se quebrar linha */
+  margin-bottom: 2rem;
+  flex-wrap: wrap; /* Permite que os botões quebrem linha em telas menores */
+  gap: 1rem; /* Espaço entre título/descrição e botões */
+  padding-bottom: 1.5rem; /* 24px */
+  border-bottom: 1px solid var(--border-color-light); /* MODO CLARO */
+}
+#configuracoes-page .header-content {
+  flex: 1; /* Permite que o título ocupe o espaço disponível */
+  min-width: 0; /* Ajuda com flexbox e overflow de texto */
+}
+#configuracoes-page .page-title {
+  font-size: 1.875rem; /* 30px */
+  font-weight: 700;
+  margin: 0;
+  color: var(--text-primary-light); /* MODO CLARO */
+}
+#configuracoes-page .page-description {
+  font-size: 1rem; /* 16px */
+  color: var(--text-secondary-light); /* MODO CLARO */
+  margin-top: 0.25rem; /* 4px */
+}
+#configuracoes-page .header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem; /* 12px */
+}
+
+/* Botões gerais da página de Configurações */
+#configuracoes-page .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem; /* 8px */
+  padding: 0.625rem 1.125rem; /* 10px 18px */
+  border-radius: var(--radius-md);
+  font-size: 0.875rem; /* 14px */
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  border: 1px solid transparent; /* Borda padrão transparente */
+  outline: none;
+}
+#configuracoes-page .btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+#configuracoes-page .btn-primary:hover {
+  background-color: var(--primary-hover);
+  border-color: var(--primary-hover);
+}
+#configuracoes-page .btn-primary:disabled {
+  background-color: #9ca3af; 
+  border-color: #9ca3af;
+  color: #e2e8f0;
+  cursor: not-allowed;
+}
+#configuracoes-page .btn-secondary {
+  background-color: var(--secondary-color);
+  color: white;
+  border-color: var(--secondary-color);
+}
+#configuracoes-page .btn-secondary:hover {
+  background-color: var(--secondary-hover);
+  border-color: var(--secondary-hover);
+}
+#configuracoes-page .btn-outline {
+  background-color: transparent;
+  border: 1px solid var(--border-color-light); /* MODO CLARO */
+  color: var(--text-secondary-light); /* MODO CLARO */
+}
+#configuracoes-page .btn-outline:hover {
+  background-color: var(--bg-page-light); /* MODO CLARO - um pouco mais escuro que o fundo do card */
+  border-color: #9ca3af; /* MODO CLARO */
+  color: var(--text-primary-light);
+}
+#configuracoes-page .btn-danger {
+  background-color: var(--danger-color);
+  color: white;
+  border-color: var(--danger-color);
+}
+#configuracoes-page .btn-danger:hover {
+  background-color: var(--danger-hover);
+  border-color: var(--danger-hover);
+}
+#configuracoes-page .btn-text {
+  background-color: transparent;
+  color: var(--secondary-color);
+  padding: 0.25rem 0.5rem;
+  border: none;
+}
+#configuracoes-page .btn-text:hover {
+  background-color: rgba(37, 99, 235, 0.05);
+}
+
+/* Status de salvamento */
+#configuracoes-page .save-status {
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.5rem 0.75rem; /* Aumentado o padding vertical */
+  border-radius: var(--radius-sm);
+  animation: fadeIn 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+}
+#configuracoes-page .save-status.saving {
+  background-color: #e0e7ff; /* Azul claro para saving - MODO CLARO */
+  color: #3730a3; /* Azul escuro para saving - MODO CLARO */
+}
+#configuracoes-page .save-status.success {
+  background-color: #d1fae5; /* Verde claro para sucesso - MODO CLARO */
+  color: #065f46; /* Verde escuro para sucesso - MODO CLARO */
+}
+#configuracoes-page .save-status.error {
+  background-color: #fee2e2; /* Vermelho claro para erro - MODO CLARO */
+  color: #991b1b; /* Vermelho escuro para erro - MODO CLARO */
+}
+
+/* Navegação Interna das Seções de Configuração */
+#configuracoes-page .config-sections-nav {
+  display: flex;
+  gap: 0.5rem; /* Espaço entre os botões/abas */
+  margin-bottom: 1.5rem; /* 24px */
+  padding-bottom: 1rem; /* 16px */
+  border-bottom: 2px solid var(--border-color-light); /* MODO CLARO */
+}
+#configuracoes-page .config-section-nav-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem; /* 12px 16px */
+  border: none;
+  background-color: transparent;
+  color: var(--text-config-nav-light); /* MODO CLARO */
+  font-size: 0.95rem; /* 15.2px */
+  font-weight: 500;
+  border-radius: var(--radius-md) var(--radius-md) 0 0; /* Arredondado em cima para efeito de aba */
+  cursor: pointer;
+  transition: var(--transition);
+  border-bottom: 2px solid transparent; /* Para o efeito de aba ativa */
+  margin-bottom: -2px; /* Para sobrepor a borda principal */
+}
+#configuracoes-page .config-section-nav-item:hover {
+  color: var(--primary-color);
+  background-color: var(--bg-page-light); /* MODO CLARO - um pouco mais escuro que fundo do card */
+}
+#configuracoes-page .config-section-nav-item.active {
+  color: var(--primary-color);
+  border-bottom-color: var(--primary-color);
+  background-color: var(--bg-content-light); /* MODO CLARO - mesma cor do card para parecer conectado */
+}
+#configuracoes-page .config-section-nav-icon svg {
+  stroke: currentColor; /* Herda a cor do texto do botão */
+}
+
+
+/* Conteúdo das seções de configuração */
+#configuracoes-page .section-content {
+  flex: 1;
+  padding-top: 1.5rem; /* Espaço acima do conteúdo da seção */
+}
+#configuracoes-page .settings-section-container {
+  display: grid; /* Mudado para grid para melhor layout dos cards */
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 450px), 1fr)); /* Cards responsivos */
+  gap: 1.5rem; /* 24px */
+}
+
+/* Cards dentro das seções */
+#configuracoes-page .card {
+  background-color: var(--bg-content-light); /* MODO CLARO */
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md); /* Sombra um pouco mais pronunciada */
+  overflow: hidden; /* Para cantos arredondados */
+}
+#configuracoes-page .card-header {
+  padding: 1.25rem 1.5rem; /* 20px 24px */
+  border-bottom: 1px solid var(--border-color-light); /* MODO CLARO */
+}
+#configuracoes-page .card-title {
+  font-size: 1.125rem; /* 18px */
+  font-weight: 600;
+  margin: 0;
+  color: var(--text-primary-light); /* MODO CLARO */
+}
+#configuracoes-page .card-description {
+  font-size: 0.875rem; /* 14px */
+  color: var(--text-secondary-light); /* MODO CLARO */
+  margin-top: 0.25rem;
+}
+#configuracoes-page .card-content {
+  padding: 1.5rem; /* 24px */
+  display: flex; /* Para alinhar itens se necessário */
+  flex-direction: column;
+  gap: 1.25rem; /* 20px, espaço entre form-groups */
+}
+
+/* Formulários */
+#configuracoes-page .form-group {
+  margin-bottom: 0; /* Removido, pois o gap no .card-content cuida disso */
+}
+#configuracoes-page .form-row {
+  display: flex;
+  gap: 1rem;
+}
+#configuracoes-page .flex-1 {
+  flex: 1;
+}
+#configuracoes-page label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary-light); /* MODO CLARO */
+}
+#configuracoes-page .text-input,
+#configuracoes-page .select-input,
+#configuracoes-page .time-input {
+  width: 100%;
+  padding: 0.625rem 0.75rem; /* 10px 12px */
+  border: 1px solid var(--border-color-light); /* MODO CLARO */
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  color: var(--text-primary-light); /* MODO CLARO */
+  background-color: var(--bg-content-light); /* MODO CLARO */
+  transition: var(--transition);
+}
+#configuracoes-page .text-input:focus,
+#configuracoes-page .select-input:focus,
+#configuracoes-page .time-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(0, 155, 58, 0.1);
+}
+#configuracoes-page .range-input {
+  width: 100%;
+  height: 6px;
+  background-color: var(--border-color-light); /* MODO CLARO */
+  border-radius: 3px;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+  margin-top: 0.25rem; /* Espaço acima do range */
+}
+#configuracoes-page .range-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  cursor: pointer;
+  border: 2px solid white;
+  box-shadow: var(--shadow-sm);
+}
+#configuracoes-page .range-input::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  cursor: pointer;
+  border: 2px solid white;
+  box-shadow: var(--shadow-sm);
+}
+#configuracoes-page .range-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  font-size: 0.75rem; /* 12px */
+  color: var(--text-secondary-light); /* MODO CLARO */
+}
+#configuracoes-page .value-display {
+  float: right;
+  font-weight: 600;
+  color: var(--primary-color);
+  font-size: 0.875rem; /* Para alinhar melhor com o label */
+}
+
+/* Switches e toggles */
+#configuracoes-page .toggle-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border-color-light); /* MODO CLARO */
+}
+#configuracoes-page .toggle-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+#configuracoes-page .toggle-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 1;
+  min-width: 0;
+}
+#configuracoes-page .toggle-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  background-color: var(--bg-page-light); /* MODO CLARO - Fundo do ícone do toggle */
+  color: var(--primary-color);
+}
+#configuracoes-page .toggle-title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-primary-light); /* MODO CLARO */
+}
+#configuracoes-page .toggle-description {
+  font-size: 0.75rem;
+  color: var(--text-secondary-light); /* MODO CLARO */
+  margin-top: 0.125rem;
+}
+#configuracoes-page .switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 22px;
+}
+#configuracoes-page .switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+#configuracoes-page .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--border-color-light); /* MODO CLARO */
+  transition: var(--transition);
+  border-radius: 34px;
+}
+#configuracoes-page .slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  transition: var(--transition);
+  border-radius: 50%;
+}
+#configuracoes-page .switch input:checked + .slider {
+  background-color: var(--primary-color);
+}
+#configuracoes-page .switch input:focus + .slider {
+  box-shadow: 0 0 1px var(--primary-color);
+}
+#configuracoes-page .switch input:checked + .slider:before {
+  transform: translateX(18px);
+}
+
+/* Seletor de tema */
+#configuracoes-page .theme-selector {
+  display: flex;
+  gap: 1rem;
+}
+#configuracoes-page .theme-option {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Centraliza conteúdo */
+  padding: 1rem;
+  border: 2px solid var(--border-color-light); /* MODO CLARO */
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: var(--transition);
+  min-height: 100px; /* Altura mínima para melhor toque */
+}
+#configuracoes-page .theme-option:hover {
+  background-color: var(--bg-page-light); /* MODO CLARO */
+  border-color: var(--primary-color);
+}
+#configuracoes-page .theme-option.active {
+  border-color: var(--primary-color);
+  background-color: rgba(0, 155, 58, 0.05); /* MODO CLARO */
+}
+#configuracoes-page .theme-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px; /* Ajustado para caber melhor */
+  height: 32px;
+  /* background-color: var(--bg-page-light); MODO CLARO - Removido para ícone parecer mais integrado */
+  margin-bottom: 0.5rem; /* 8px */
+  color: var(--text-primary-light); /* MODO CLARO */
+}
+#configuracoes-page .theme-option.active .theme-icon {
+  color: var(--primary-color);
+}
+#configuracoes-page .theme-option span { 
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-primary-light); /* MODO CLARO */
+}
+#configuracoes-page .theme-option.active span {
+    color: var(--primary-color);
+}
+
+
+/* Sessões */
+#configuracoes-page .session-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border-color-light); /* MODO CLARO */
+}
+#configuracoes-page .session-item:last-child {
+  border-bottom: none;
+}
+#configuracoes-page .session-device {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-primary-light); /* MODO CLARO */
+}
+#configuracoes-page .session-details {
+  font-size: 0.75rem;
+  color: var(--text-secondary-light); /* MODO CLARO */
+  margin-top: 0.125rem;
+}
+#configuracoes-page .session-current {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--success-color); /* MODO CLARO */
+  background-color: rgba(16, 185, 129, 0.1); /* MODO CLARO */
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-sm);
+}
+#configuracoes-page .btn-text.btn-danger-text { color: var(--danger-color); }
+#configuracoes-page .btn-text.btn-danger-text:hover { background-color: rgba(220, 38, 38, 0.05); }
+#configuracoes-page .btn-danger-outline {
+  color: var(--danger-color);
+  border-color: var(--danger-color);
+}
+#configuracoes-page .btn-danger-outline:hover {
+  background-color: rgba(220, 38, 38, 0.05);
+}
+#configuracoes-page .mt-4 { margin-top: 1rem; } 
+
+/* Backup */
+#configuracoes-page .backup-info {
+  margin-bottom: 1.5rem;
+}
+#configuracoes-page .backup-status {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+#configuracoes-page .status-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+}
+#configuracoes-page .status-icon.success {
+  background-color: rgba(16, 185, 129, 0.1); /* MODO CLARO */
+  color: var(--success-color); /* MODO CLARO */
+}
+#configuracoes-page .status-icon.warning {
+  background-color: rgba(245, 158, 11, 0.1); /* MODO CLARO */
+  color: var(--warning-color); /* MODO CLARO */
+}
+#configuracoes-page .status-icon.error {
+  background-color: rgba(239, 68, 68, 0.1); /* MODO CLARO */
+  color: var(--error-color); /* MODO CLARO */
+}
+#configuracoes-page .status-title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-primary-light); /* MODO CLARO */
+}
+#configuracoes-page .status-time {
+  font-size: 0.75rem;
+  color: var(--text-secondary-light); /* MODO CLARO */
+}
+#configuracoes-page .backup-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem; /* Espaço acima dos botões */
+}
+
+/* Seletor de dias da semana */
+#configuracoes-page .weekday-selector {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap; /* Permite quebra de linha se necessário */
+}
+#configuracoes-page .weekday-item {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: var(--bg-page-light); /* MODO CLARO */
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-secondary-light); /* MODO CLARO */
+  cursor: pointer;
+  transition: var(--transition);
+  border: 1px solid var(--border-color-light); 
+}
+#configuracoes-page .weekday-item.active {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+#configuracoes-page .weekday-item:not(.active):hover {
+    background-color: #e9ecef; 
+    border-color: #ced4da;
+}
+#configuracoes-page .form-row { display: flex; gap: 1rem; }
+#configuracoes-page .form-row .form-group { flex: 1; }
+
+
+/* Rodapé */
+#configuracoes-page .footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1.5rem;
+  margin-top: auto; /* Empurra o footer para baixo se o conteúdo for curto */
+  border-top: 1px solid var(--border-color-light); /* MODO CLARO */
+  font-size: 0.75rem; /* 12px */
+  color: var(--text-secondary-light); /* MODO CLARO */
+}
+#configuracoes-page .footer-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+#configuracoes-page .separator {
+  color: var(--text-light-light); /* MODO CLARO */
+}
+#configuracoes-page .footer-link {
+  color: var(--secondary-color);
+  text-decoration: none;
+}
+#configuracoes-page .footer-link:hover {
+  text-decoration: underline;
+}
+#configuracoes-page .unsaved-changes {
+  color: var(--warning-color); /* MODO CLARO */
+  font-weight: 500;
+  display: inline-flex; /* Para alinhar ícone e texto */
+  align-items: center;
+  gap: 0.375rem; /* 6px */
+}
+
+/* Animações */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+#configuracoes-page .animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards; /* Aumentado um pouco a duração */
+}
+
+/* ============================================ */
+/* ========== DARK MODE OVERRIDES ============= */
+/* ============================================ */
+
+body[data-theme="dark"] #configuracoes-page.configuracoes-container {
+  background-color: #111827; 
+  color: #d1d5db; 
+}
+
+/* Sidebar Principal da Aplicação no Dark Mode */
+body[data-theme="dark"] #configuracoes-page .app-sidebar {
+  background-color: #0f172a; 
+  color: #94a3b8; 
+  border-right: 1px solid #1e293b;
+}
+body[data-theme="dark"] #configuracoes-page .app-sidebar-header {
+  border-bottom-color: #1e293b;
+}
+body[data-theme="dark"] #configuracoes-page .app-sidebar-title {
+  color: #f1f5f9; 
+}
+body[data-theme="dark"] #configuracoes-page .app-nav-item {
+  color: #94a3b8;
+}
+body[data-theme="dark"] #configuracoes-page .app-nav-item .app-nav-icon svg {
+  stroke: #94a3b8;
+}
+body[data-theme="dark"] #configuracoes-page .app-nav-item:hover {
+  background-color: #1e293b; 
+  color: #e2e8f0; 
+}
+body[data-theme="dark"] #configuracoes-page .app-nav-item:hover .app-nav-icon svg {
+  stroke: #e2e8f0;
+}
+body[data-theme="dark"] #configuracoes-page .app-nav-item.app-nav-item-active {
+  background-color: var(--primary-color); 
+  color: #ffffff;
+}
+body[data-theme="dark"] #configuracoes-page .app-nav-item.app-nav-item-active .app-nav-icon svg {
+  stroke: #ffffff;
+}
+body[data-theme="dark"] #configuracoes-page .app-user-profile {
+  background-color: #1e293b;
+  border-top-color: #334155;
+}
+body[data-theme="dark"] #configuracoes-page .app-user-name {
+  color: #f1f5f9;
+}
+body[data-theme="dark"] #configuracoes-page .app-user-avatar {
+    background-color: var(--primary-color); 
+    color: #ffffff;
+}
+body[data-theme="dark"] #configuracoes-page .app-user-role {
+  color: #64748b; 
+}
+
+
+/* Conteúdo Principal da Página de Configurações no Dark Mode */
+body[data-theme="dark"] #configuracoes-page .main-content-config {
+  background-color: #111827; 
+  color: #d1d5db; 
+}
+body[data-theme="dark"] #configuracoes-page .header {
+  border-bottom-color: #1e293b; 
+}
+body[data-theme="dark"] #configuracoes-page .page-title {
+  color: #f1f5f9; 
+}
+body[data-theme="dark"] #configuracoes-page .page-description {
+  color: #94a3b8; 
+}
+body[data-theme="dark"] #configuracoes-page .btn-outline {
+  border-color: #334155;
+  color: #94a3b8;
+}
+body[data-theme="dark"] #configuracoes-page .btn-outline:hover {
+  background-color: #1e293b;
+  border-color: #475569;
+  color: #e2e8f0;
+}
+body[data-theme="dark"] #configuracoes-page .btn-primary:disabled {
+  background-color: #334155;
+  border-color: #334155;
+  color: #64748b;
+}
+body[data-theme="dark"] #configuracoes-page .save-status.saving {
+  background-color: #1e293b; 
+  color: #60a5fa; 
+}
+body[data-theme="dark"] #configuracoes-page .save-status.success {
+  background-color: rgba(16, 185, 129, 0.2); /* Ajuste da opacidade */
+  color: #34d399; 
+}
+body[data-theme="dark"] #configuracoes-page .save-status.error {
+  background-color: rgba(239, 68, 68, 0.2); /* Ajuste da opacidade */
+  color: #f87171; 
+}
+
+/* Navegação Interna das Seções de Configuração no Dark Mode */
+body[data-theme="dark"] #configuracoes-page .config-sections-nav {
+  border-bottom-color: #1e293b;
+}
+body[data-theme="dark"] #configuracoes-page .config-section-nav-item {
+  color: #94a3b8; /* Cor do texto inativo */
+}
+body[data-theme="dark"] #configuracoes-page .config-section-nav-item:hover {
+  color: var(--primary-color);
+  background-color: #1e293b; /* Fundo do hover */
+}
+body[data-theme="dark"] #configuracoes-page .config-section-nav-item.active {
+  color: var(--primary-color);
+  border-bottom-color: var(--primary-color);
+  background-color: #111827; /* Fundo da aba ativa (mesmo do fundo da página) */
+}
+
+
+/* Cards no Dark Mode */
+body[data-theme="dark"] #configuracoes-page .card {
+  background-color: #1e293b; 
+  box-shadow: var(--shadow-md); 
+  border: 1px solid #334155; 
+}
+body[data-theme="dark"] #configuracoes-page .card-header {
+  border-bottom-color: #334155;
+}
+body[data-theme="dark"] #configuracoes-page .card-title {
+  color: #f1f5f9; 
+}
+body[data-theme="dark"] #configuracoes-page .card-description {
+  color: #94a3b8; 
+}
+
+/* Formulários no Dark Mode */
+body[data-theme="dark"] #configuracoes-page label {
+  color: #cbd5e1; 
+}
+body[data-theme="dark"] #configuracoes-page .text-input,
+body[data-theme="dark"] #configuracoes-page .select-input,
+body[data-theme="dark"] #configuracoes-page .time-input {
+  background-color: #0f172a; 
+  border-color: #334155; 
+  color: #e2e8f0; 
+}
+body[data-theme="dark"] #configuracoes-page .text-input::placeholder,
+body[data-theme="dark"] #configuracoes-page .time-input::placeholder {
+    color: #64748b; 
+}
+body[data-theme="dark"] #configuracoes-page .select-input option { 
+    background-color: #0f172a;
+    color: #e2e8f0;
+}
+body[data-theme="dark"] #configuracoes-page .text-input:focus,
+body[data-theme="dark"] #configuracoes-page .select-input:focus,
+body[data-theme="dark"] #configuracoes-page .time-input:focus {
+  border-color: var(--primary-color); 
+  box-shadow: 0 0 0 3px rgba(0, 155, 58, 0.25); 
+  background-color: #1e293b; 
+}
+body[data-theme="dark"] #configuracoes-page .range-input {
+  background-color: #334155; 
+}
+body[data-theme="dark"] #configuracoes-page .range-input::-webkit-slider-thumb {
+  background-color: var(--primary-color); 
+  border: 2px solid #1e293b; 
+}
+body[data-theme="dark"] #configuracoes-page .range-input::-moz-range-thumb {
+  background-color: var(--primary-color);
+  border: 2px solid #1e293b;
+}
+body[data-theme="dark"] #configuracoes-page .range-labels {
+  color: #94a3b8; 
+}
+body[data-theme="dark"] #configuracoes-page .value-display {
+  color: var(--primary-color); /* Manter cor de destaque */
+}
+
+/* Switches e Toggles no Dark Mode */
+body[data-theme="dark"] #configuracoes-page .toggle-item {
+  border-bottom-color: #334155;
+}
+body[data-theme="dark"] #configuracoes-page .toggle-icon {
+  background-color: #0f172a; 
+  color: var(--primary-color); 
+}
+body[data-theme="dark"] #configuracoes-page .toggle-title {
+  color: #f1f5f9; 
+}
+body[data-theme="dark"] #configuracoes-page .toggle-description {
+  color: #94a3b8; 
+}
+body[data-theme="dark"] #configuracoes-page .slider {
+  background-color: #475569; /* Slider desligado mais escuro */
+}
+body[data-theme="dark"] #configuracoes-page .slider:before {
+  background-color: #1e293b; /* Círculo do slider */
+}
+body[data-theme="dark"] #configuracoes-page .switch input:checked + .slider {
+  background-color: var(--primary-color); 
+}
+body[data-theme="dark"] #configuracoes-page .switch input:focus + .slider {
+  box-shadow: 0 0 1px var(--primary-color);
+}
+
+/* Seletor de Tema no Dark Mode */
+body[data-theme="dark"] #configuracoes-page .theme-option {
+  border-color: #334155; 
+}
+body[data-theme="dark"] #configuracoes-page .theme-option:hover {
+  background-color: #1e293b; 
+  border-color: var(--primary-color);
+}
+body[data-theme="dark"] #configuracoes-page .theme-option.active {
+  border-color: var(--primary-color); 
+  background-color: rgba(0, 155, 58, 0.15); 
+}
+body[data-theme="dark"] #configuracoes-page .theme-icon {
+  /* background-color: #0f172a;  Removido para ícone parecer mais integrado */
+  color: #94a3b8; 
+}
+body[data-theme="dark"] #configuracoes-page .theme-option.active .theme-icon {
+  color: var(--primary-color); 
+}
+body[data-theme="dark"] #configuracoes-page .theme-option span {
+    color: #cbd5e1; 
+}
+body[data-theme="dark"] #configuracoes-page .theme-option.active span {
+    color: var(--primary-color); 
+}
+
+
+/* Sessões no Dark Mode */
+body[data-theme="dark"] #configuracoes-page .session-item {
+  border-bottom-color: #334155;
+}
+body[data-theme="dark"] #configuracoes-page .session-device {
+  color: #f1f5f9;
+}
+body[data-theme="dark"] #configuracoes-page .session-details {
+  color: #94a3b8;
+}
+body[data-theme="dark"] #configuracoes-page .session-current {
+  color: #34d399; 
+  background-color: rgba(52, 211, 153, 0.1);
+}
+body[data-theme="dark"] #configuracoes-page .btn-text.btn-danger-text {
+  color: #f87171; 
+}
+body[data-theme="dark"] #configuracoes-page .btn-text.btn-danger-text:hover {
+  background-color: rgba(248, 113, 113, 0.1);
+}
+body[data-theme="dark"] #configuracoes-page .btn-danger-outline {
+  color: #f87171;
+  border-color: #f87171;
+}
+body[data-theme="dark"] #configuracoes-page .btn-danger-outline:hover {
+  background-color: rgba(248, 113, 113, 0.1);
+}
+
+
+/* Backup no Dark Mode */
+body[data-theme="dark"] #configuracoes-page .status-icon.success {
+  background-color: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+}
+body[data-theme="dark"] #configuracoes-page .status-icon.warning {
+  background-color: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+}
+body[data-theme="dark"] #configuracoes-page .status-icon.error {
+  background-color: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+}
+body[data-theme="dark"] #configuracoes-page .status-title {
+  color: #f1f5f9;
+}
+body[data-theme="dark"] #configuracoes-page .status-time {
+  color: #94a3b8;
+}
+body[data-theme="dark"] #configuracoes-page .btn-secondary {
+  background-color: #334155; /* Botão secundário mais escuro */
+  border-color: #334155;
+  color: #cbd5e1;
+}
+body[data-theme="dark"] #configuracoes-page .btn-secondary:hover {
+  background-color: #475569;
+  border-color: #475569;
+}
+
+
+/* Seletor de dias da semana no Dark Mode */
+body[data-theme="dark"] #configuracoes-page .weekday-item {
+  background-color: #0f172a;
+  color: #94a3b8;
+  border-color: #334155;
+}
+body[data-theme="dark"] #configuracoes-page .weekday-item.active {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+body[data-theme="dark"] #configuracoes-page .weekday-item:not(.active):hover {
+    background-color: #1e293b;
+    border-color: #475569;
+}
+
+
+/* Rodapé no Dark Mode */
+body[data-theme="dark"] #configuracoes-page .footer {
+  border-top-color: #1e293b;
+  color: #94a3b8;
+}
+body[data-theme="dark"] #configuracoes-page .separator {
+  color: #475569;
+}
+body[data-theme="dark"] #configuracoes-page .footer-link {
+  color: #34d399; 
+}
+body[data-theme="dark"] #configuracoes-page .unsaved-changes {
+  color: #fb923c; 
+}
+
+/* Responsividade para o tema escuro (se necessário, ajustes específicos aqui) */
+@media (max-width: 768px) { 
+  body[data-theme="dark"] #configuracoes-page .app-sidebar { /* Ajuste para a sidebar principal */
+    background-color: #0f172a; 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.5); 
+  }
+  body[data-theme="dark"] #configuracoes-page .main-content-config {
+    margin-left: 64px; /* Se a sidebar principal encolher */
+  }
+}

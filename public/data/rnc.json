@@ -1,0 +1,101 @@
+{
+  "success": true,
+  "project": {
+    "name": "Registro de Não Conformidade",
+    "calendar": "industrial",
+    "startDate": "2025-04-01",
+    "hoursPerDay": 8,
+    "daysPerWeek": 5,
+    "daysPerMonth": 22
+  },
+  "tasks": {
+    "rows": [
+      {
+        "id": 1000,
+        "name": "RNCs - Abril/2025",
+        "expanded": true,
+        "children": [
+          {
+            "id": 1,
+            "name": "RNC #001 - Rolo Calandra",
+            "relator": "Fernando Lima",
+            "data": "2025-04-15",
+            "equipamento": "Rolo Calandra Inferior",
+            "pcs": "M12034",
+            "responsavel": "Equipe de Qualidade",
+            "descricao": "Superfície do rolo apresenta marcas de usinagem fora da tolerância.",
+            "statusProc": "Não Conforme",
+            "statusEngE": "Em Análise",
+            "statusOP": "Em Retrabalho",
+            "statusFab": "Não Aplicável",
+            "statusSup": "Não Aplicável",
+            "statusIF": "Pendente"
+          },
+          {
+            "id": 2,
+            "name": "RNC #002 - Sapata ENP",
+            "relator": "Carla Pereira",
+            "data": "2025-04-20",
+            "equipamento": "Sapata ENP",
+            "pcs": "M12094",
+            "responsavel": "Engenharia de Processos",
+            "descricao": "Material recebido não confere com a especificação técnica.",
+            "statusProc": "Em Análise",
+            "statusEngE": "Não Aplicável",
+            "statusOP": "Pendente",
+            "statusFab": "Não Aplicável",
+            "statusSup": "Não Conforme",
+            "statusIF": "Não Aplicável"
+          },
+          {
+            "id": 3,
+            "name": "RNC #003 - Cabeçote",
+            "relator": "Roberto Souza",
+            "data": "2025-04-28",
+            "equipamento": "Cabeçote",
+            "pcs": "M12264",
+            "responsavel": "Equipe de Montagem",
+            "descricao": "Dificuldade na montagem devido a desalinhamento de furos.",
+            "statusProc": "Não Aplicável",
+            "statusEngE": "Em Análise",
+            "statusOP": "Em Correção",
+            "statusFab": "Não Aplicável",
+            "statusSup": "Não Aplicável",
+            "statusIF": "Pendente"
+          }
+        ]
+      }
+    ]
+  },
+  "resources": {
+    "rows": [
+      { "id": "QUAL", "name": "Qualidade" },
+      { "id": "ENG", "name": "Engenharia" },
+      { "id": "PROD", "name": "Produção" },
+      { "id": "SUP", "name": "Suprimentos" }
+    ]
+  },
+  "assignments": {
+    "rows": []
+  },
+  "calendars": {
+    "rows": [
+      {
+        "id": "industrial",
+        "name": "Calendário Industrial",
+        "intervals": [
+          {
+            "recurrentStartDate": "on Sat at 0:00",
+            "recurrentEndDate": "on Mon at 0:00",
+            "isWorking": false
+          },
+          {
+            "recurrentStartDate": "every weekday at 12:00",
+            "recurrentEndDate": "every weekday at 13:00",
+            "isWorking": false
+          }
+        ]
+      }
+    ]
+  }
+}

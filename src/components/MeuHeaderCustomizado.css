@@ -1,0 +1,491 @@
+/* src/components/MeuHeaderCustomizado/MeuHeaderCustomizado.css */
+
+.meu-header-customizado {
+    display: flex; /* Usa flexbox para alinhar itens */
+    justify-content: space-between; /* Espaça o lado esquerdo e direito */
+    align-items: center; /* Alinha itens verticalmente ao centro */
+    padding: 0 20px; /* Espaçamento interno horizontal */
+    height: 60px; /* Altura do header (ajuste conforme necessário) */
+    background-color: #1976D2; /* Cor de fundo azul (similar à imagem) */
+    color: white; /* Cor do texto padrão */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+/* Lado Esquerdo: Título/Logo */
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.b-label{
+  color: white;
+}
+
+.header-logo {
+    height: 30px; /* Ajuste o tamanho do logo */
+    margin-right: 15px;
+}
+
+.header-title-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1.4em; /* Tamanho da fonte do título */
+    font-weight: bold;
+}
+
+.header-title-link:hover {
+    text-decoration: underline;
+}
+
+/* Lado Direito: Ferramentas */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Espaçamento entre os grupos de ferramentas */
+}
+
+.header-upload-section,
+.header-theme-section,
+.header-fullscreen-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+/* Ajustes específicos para componentes Bryntum (podem precisar de mais refinamento) */
+
+/* Estilo para o seletor de tema */
+.header-theme-section .b-combo {
+    /* O BryntumThemeCombo já deve ter estilos. */
+    /* Se precisar ajustar a largura ou margens: */
+     width: 150px; 
+    /* Para garantir que o texto dentro seja visível no fundo azul, */
+    /* pode ser necessário inspecionar e sobrescrever estilos internos se o padrão não funcionar. */
+    /* Exemplo (pode não ser necessário): */
+}
+
+/* Estilo para o botão de tela cheia */
+.header-fullscreen-section .b-button {
+    /* O BryntumFullscreenButton já deve ter estilos. */
+    width: 40px;
+    /* Se precisar ajustar cor ou tamanho: */
+     background-color: transparent; 
+     font-size: 1.2em; 
+    border: none;
+    padding: 5px;
+}
+
+.header-fullscreen-section .b-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Estilo para a seção de upload */
+.header-upload-section {
+    /* O UploadComponent precisará ser estilizado para caber aqui */
+    /* Exemplo: fazer os elementos ficarem em linha e ajustar margens */
+    background-color: rgba(255, 255, 255, 0.1); /* Fundo levemente diferente */
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.header-upload-section label,
+.header-upload-section input[type="file"],
+.header-upload-section button {
+    margin: 0 5px; /* Espaçamento entre os elementos do upload */
+    font-size: 0.9em;
+}
+.header-export-section,
+.header-upload-section,
+.header-theme-section,
+.header-fullscreen-section {
+    margin-left: 10px; /* Adiciona um espaçamento entre os grupos de botões/ferramentas */
+}
+
+.meu-header-botao {
+    /* Estilos básicos para o botão, personalize como quiser */
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    border-radius: 4px;
+    display: inline-flex; /* Para alinhar ícone e texto */
+    align-items: center;
+}
+
+.meu-header-botao:hover {
+    background-color: #e0e0e0;
+}
+
+.meu-header-botao i { /* Se estiver usando <i> para ícones */
+    margin-right: 5px; /* Espaço entre o ícone e o texto */
+}
+
+/* Opcional: Label para o seletor de tema */
+.theme-label {
+    margin-right: 5px;
+    font-size: 0.9em;
+    text-transform: uppercase;
+}
+
+/* src/components/UploadComponent.css */
+
+.upload-controls-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Espaço entre os botões */
+}
+
+.hidden-file-input {
+  display: none; /* Esconde o input de arquivo original */
+}
+
+.custom-select-file-button {
+  display: inline-flex; /* Para alinhar ícone e texto */
+  align-items: center;
+  padding: 6px 10px; /* Padding menor para caber no header */
+  background-color: white;
+  color: #1976D2; /* Cor do texto igual à cor do header para link visual */
+  border: 1px solid #1976D2; /* Borda na cor do header */
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85em; /* Fonte menor para o header */
+  font-weight: 500;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  white-space: nowrap; /* Impede que o texto quebre */
+  overflow: hidden; /* Esconde o que não couber */
+  text-overflow: ellipsis; /* Adiciona "..." se o nome do arquivo for muito longo */
+  max-width: 160px; /* Limita a largura para o nome do arquivo, ajuste conforme necessário */
+}
+
+.custom-select-file-button:hover {
+  background-color: #e3f2fd; /* Azul bem claro no hover */
+  border-color: #1565C0;
+}
+
+.custom-select-file-button:disabled {
+  background-color: #e0e0e0;
+  color: #9e9e9e;
+  cursor: not-allowed;
+  border-color: #bdbdbd;
+}
+
+.custom-select-file-button .upload-icon {
+  margin-right: 6px; /* Espaço entre ícone e texto */
+  font-size: 1em; /* Ajuste para o tamanho do seu ícone */
+}
+
+.custom-select-file-button .file-name-display {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: inline-block; /* Necessário para text-overflow funcionar bem */
+}
+
+.custom-submit-upload-button {
+  padding: 6px 10px;
+  background-color: #1E88E5; /* Um azul um pouco diferente */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85em;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+  white-space: nowrap;
+}
+
+.custom-submit-upload-button:hover {
+  background-color: #1565C0;
+}
+
+.custom-submit-upload-button:disabled {
+  background-color: #90caf9; /* Azul mais claro e desabilitado */
+  cursor: not-allowed;
+}
+
+
+/* Mensagens de status (muito pequenas para o header, idealmente usar toasts) */
+.upload-message {
+  font-size: 1rem; 
+  margin-left: 5px;
+  white-space: nowrap;
+}
+.upload-error-text {
+  color: #d32f2f; /* Vermelho mais escuro */
+}
+.upload-success-text {
+  color: #FFF; /* Verde mais escuro */
+}
+/* === Estilos para o Popover de Notificações === */
+
+/* Contêiner principal do Popover (shadcn/ui PopoverContent) */
+.notification-popover-content {
+  background-color: #ffffff; /* FUNDO OPACO BRANCO */
+  border: 1px solid #e5e7eb;  /* slate-200 - Borda sutil */
+  border-radius: 0.5rem;      /* rounded-lg */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1); /* Sombra padrão de dropdown */
+  padding: 0 !important;      /* Remove padding padrão se houver, para controle total interno */
+  width: 360px;               /* Largura fixa, ajuste se necessário (era w-80 sm:w-96) */
+}
+
+/* Estilos para tema escuro, se você tiver um seletor de tema no app */
+.dark .notification-popover-content {
+  background-color: #1f2937; /* slate-800 */
+  border-color: #374151;     /* slate-700 */
+}
+
+/* Cabeçalho do Popover */
+.notification-popover-header {
+  padding: 0.75rem 1rem;    /* 12px 16px */
+  border-bottom: 1px solid #e5e7eb; /* slate-200 */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.dark .notification-popover-header {
+  border-bottom-color: #374151; /* slate-700 */
+}
+
+.notification-popover-header h4 {
+  font-size: 0.9rem;    /* Um pouco menor que o anterior */
+  font-weight: 600;     /* semibold */
+  color: #111827;       /* slate-900 */
+}
+.dark .notification-popover-header h4 {
+  color: #f9fafb;       /* slate-50 */
+}
+
+/* Botão "Marcar todas como lidas" no header */
+.notification-popover-header .button-link-sm {
+  font-size: 0.75rem;   /* text-xs */
+  padding: 0.25rem 0;   /* Menos padding vertical para alinhar melhor */
+  color: #3b82f6;       /* blue-500 */
+  text-decoration: none;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.dark .notification-popover-header .button-link-sm {
+  color: #60a5fa;       /* blue-400 */
+}
+.notification-popover-header .button-link-sm:hover {
+  text-decoration: underline;
+  color: #1d4ed8;       /* blue-700 */
+}
+.dark .notification-popover-header .button-link-sm:hover {
+  color: #93c5fd;       /* blue-300 */
+}
+
+/* No seu MeuHeaderCustomizado.css */
+
+.notification-icon-button {
+  background-color: transparent !important; /* Garante fundo transparente */
+  border: none !important; /* Remove qualquer borda */
+  padding: 0.5rem; /* Ajuste o padding para o tamanho desejado */
+  border-radius: 0.375rem; /* rounded-md, ou 9999px para totalmente redondo */
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+
+  /* Cor do ícone - ajuste para o tema do seu header */
+  color: #4A5568; /* Exemplo: um cinza escuro (Tailwind gray-600) */
+}
+
+/* Se seu header tiver um tema escuro */
+.dark .notification-icon-button, 
+.meu-header-customizado.dark-theme .notification-icon-button { /* Se você tem uma classe de tema no header pai */
+  color: #E2E8F0; /* Exemplo: um cinza claro (Tailwind slate-200) */
+}
+
+.notification-icon-button:hover {
+  background-color: rgba(0, 0, 0, 0.05); /* Fundo sutil no hover */
+}
+.dark .notification-icon-button:hover,
+.meu-header-customizado.dark-theme .notification-icon-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.notification-icon-button svg {
+  /* O tamanho é definido por h-5 w-5 no JSX, mas pode forçar aqui se necessário */
+  /* width: 20px; */
+  /* height: 20px; */
+  stroke-width: 2; /* Ajuste a espessura da linha do ícone se desejar */
+}
+
+/* Estilo do Badge permanece o mesmo que antes */
+.notification-badge {
+    position: absolute;
+    top: 0.25rem; 
+    right: 0.25rem; 
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0.3rem; 
+    min-width: 1rem; 
+    height: 1rem;
+    font-size: 0.65rem; 
+    font-weight: bold;
+    line-height: 1;
+    color: white;
+    background-color: #EF4444; /* Vermelho */
+    border-radius: 9999px; 
+}
+/* Lista de Notificações */
+.notification-list {
+  max-height: 320px; /* Altura máxima antes do scroll */
+  overflow-y: auto;
+}
+
+/* Cada item da notificação */
+.notification-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0.75rem 1rem; /* p-3 px-4 */
+  border-bottom: 1px solid #f3f4f6; /* slate-100 - borda bem sutil */
+  transition: background-color 0.15s ease-in-out;
+}
+.dark .notification-item {
+  border-bottom-color: #ffffff; /* slate-700 - borda sutil no escuro */
+}
+.notification-item:last-child {
+  border-bottom: none;
+}
+
+/* Item não lido */
+.notification-item.unread {
+  background-color: #f0f9ff; /* sky-50 - um azul bem claro */
+  /* Adicionar uma bolinha azul à esquerda para mais destaque */
+  position: relative;
+  padding-left: 1.5rem; /* Espaço para a bolinha */
+}
+.dark .notification-item.unread {
+  background-color: rgba(14, 165, 233, 0.1); /* sky-500 com opacidade */
+}
+
+/* Bolinha para item não lido */
+.notification-item.unread::before {
+  content: '';
+  position: absolute;
+  left: 0.65rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background-color: #0ea5e9; /* sky-500 */
+  border-radius: 50%;
+}
+.dark .notification-item.unread::before {
+  background-color: #38bdf8; /* sky-400 */
+}
+
+
+.notification-item:hover {
+  background-color: #f9fafb; /* slate-50 - hover sutil */
+}
+.dark .notification-item:hover {
+  background-color: #374151; /* slate-700 - hover sutil no escuro */
+}
+
+.notification-content {
+  flex-grow: 1;
+  margin-right: 0.5rem;
+}
+
+.notification-message {
+  font-size: 0.875rem;    /* text-sm */
+  color: #374151;        /* slate-700 */
+  margin-bottom: 0.125rem; /* mb-0.5 - espaço bem pequeno */
+  line-height: 1.4;
+  font-weight: 400;       /* Normal */
+}
+.dark .notification-message {
+  color: #d1d5db;        /* slate-300 */
+}
+
+.notification-item.unread .notification-message {
+  font-weight: 500;       /* medium - para não lidas */
+  color: #0c4a6e;        /* sky-800 */
+}
+.dark .notification-item.unread .notification-message {
+  color: #e0f2fe;        /* sky-100 */
+}
+
+.notification-time {
+  font-size: 0.75rem;     /* text-xs */
+  color: #6b7280;        /* slate-500 */
+}
+.dark .notification-time {
+  color: #9ca3af;        /* slate-400 */
+}
+
+/* Botão "Marcar como lida" (ícone CheckCheck) */
+.notification-mark-read {
+  color: #9ca3af !important; /* slate-400 - cor inicial sutil */
+  background-color: transparent !important;
+  padding: 0.2rem !important; /* Ajuste para alinhar melhor */
+  height: auto !important;
+  border-radius: 0.375rem; /* rounded-md */
+  flex-shrink: 0;
+  opacity: 0.6; /* Começa um pouco apagado */
+  transition: opacity 0.2s, background-color 0.2s, color 0.2s;
+}
+.dark .notification-mark-read {
+   color: #6b7280 !important; /* slate-500 */
+}
+
+.notification-item:hover .notification-mark-read { /* Aparece mais no hover do item */
+  opacity: 1;
+}
+
+.notification-mark-read:hover {
+  opacity: 1;
+  background-color: #dcfce7 !important; /* green-100 */
+  color: #16a34a !important;       /* green-600 */
+}
+.dark .notification-mark-read:hover {
+  background-color: #14532d !important; /* green-900 */
+  color: #86efac !important;       /* green-300 */
+}
+
+/* Rodapé do Popover */
+.notification-popover-footer {
+  padding: 0.5rem; /* Um pouco menos de padding */
+  text-align: center;
+  border-top: 1px solid #e5e7eb; /* slate-200 */
+}
+.dark .notification-popover-footer {
+  border-top-color: #374151; /* slate-700 */
+}
+
+.notification-popover-footer .button-link-sm {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #3b82f6; /* blue-500 */
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 0.375rem; /* rounded-md */
+}
+.dark .notification-popover-footer .button-link-sm {
+  color: #60a5fa; /* blue-400 */
+}
+.notification-popover-footer .button-link-sm:hover {
+  background-color: #eff6ff; /* blue-50 */
+}
+.dark .notification-popover-footer .button-link-sm:hover {
+  background-color: rgba(59, 130, 246, 0.1);
+}
+
+/* Animação */
+.notification-popover-content[data-state="open"] {
+  animation: popoverSlideDown 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes popoverSlideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

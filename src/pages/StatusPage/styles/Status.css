@@ -1,0 +1,679 @@
+/* styles/Status.css */
+
+/* Estilos gerais para #status-page-container */
+#status-page-container {
+  /* Cores para MODO CLARO */
+  --status-bg-page: #f8fafc;
+  --status-bg-content: #ffffff;
+  --status-text-primary: #1e293b;
+  --status-text-secondary: #64748b;
+  --status-text-tertiary: #94a3b8;
+  --status-border-color: #e2e8f0;
+  --status-accent-primary: #10b981; /* Verde Valmet */
+  --status-accent-secondary: #3b82f6; /* Azul para progresso */
+  --status-alert-high: #ef4444;
+  --status-alert-medium: #f59e0b;
+  --status-alert-low: var(--status-accent-primary);
+  --status-sidebar-bg: #1a2234; /* Sidebar principal da aplicação */
+  --status-sidebar-text: #cbd5e1;
+  --status-sidebar-text-hover: #f8fafc;
+  --status-sidebar-item-hover-bg: rgba(75, 85, 99, 0.3);
+  --status-sidebar-item-active-bg: var(--status-accent-primary);
+  --status-sidebar-item-active-text: #ffffff;
+
+  font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+}
+
+#status-page-container.status-container { /* Mantendo a classe original para compatibilidade inicial */
+  display: flex;
+  height: 100vh;
+  background-color: var(--status-bg-page);
+}
+
+/* Sidebar Principal da Aplicação (app-sidebar) */
+#status-page-container .app-sidebar {
+  width: 250px; 
+  background-color: var(--status-sidebar-bg); 
+  color: var(--status-sidebar-text); 
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 1000; 
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1); 
+}
+#status-page-container .app-sidebar-header {
+  display: flex;
+  align-items: center;
+  padding: 20px 24px; 
+  border-bottom: 1px solid #2d3748; /* Cor da borda da sidebar, pode ser uma variável */
+}
+#status-page-container .app-sidebar-logo img { 
+  height: 40px; 
+  width: auto;
+}
+#status-page-container .app-sidebar-logo {
+  margin-right: 10px; 
+}
+#status-page-container .app-sidebar-title {
+  font-size: 20px; 
+  font-weight: 600;
+  color: #ffffff; 
+}
+#status-page-container .app-nav {
+  flex: 1;
+  margin-top: 24px; 
+  padding: 0 16px; 
+}
+#status-page-container .app-nav-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px; 
+  margin-bottom: 8px; 
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease; 
+  color: var(--status-sidebar-text);
+}
+#status-page-container .app-nav-item .app-nav-icon svg { 
+  stroke: currentColor;
+}
+#status-page-container .app-nav-item:hover {
+  background-color: var(--status-sidebar-item-hover-bg);
+  color: var(--status-sidebar-text-hover);
+}
+#status-page-container .app-nav-item.app-nav-item-active {
+  background-color: var(--status-sidebar-item-active-bg);
+  color: var(--status-sidebar-item-active-text);
+}
+#status-page-container .app-nav-icon {
+  margin-right: 14px; 
+}
+#status-page-container .app-nav-text {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+#status-page-container .app-user-profile {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin: 16px; 
+  background-color: rgba(75, 85, 99, 0.5);
+  border-radius: 6px;
+  border-top: 1px solid #2d3748;
+  margin-top: auto; 
+}
+#status-page-container .app-user-avatar {
+  width: 36px; 
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--status-accent-primary); 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+#status-page-container .app-user-info {
+  margin-left: 10px; 
+}
+#status-page-container .app-user-name {
+  font-size: 0.85rem; 
+  font-weight: 600; 
+  color: #f8fafc;
+}
+#status-page-container .app-user-role {
+  font-size: 0.75rem; 
+  color: var(--status-sidebar-text); 
+  opacity: 0.8;
+}
+
+
+/* Conteúdo principal da página de Status */
+#status-page-container .main {
+  flex: 1;
+  margin-left: 250px; /* Correspondente à largura da .app-sidebar */
+  padding: 24px;
+  background-color: var(--status-bg-page);
+  overflow-y: auto;
+  color: var(--status-text-primary);
+}
+
+#status-page-container .header {
+  margin-bottom: 24px;
+}
+
+#status-page-container .page-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--status-text-primary);
+}
+
+#status-page-container .page-description {
+  font-size: 14px;
+  color: var(--status-text-secondary);
+  margin-top: 4px;
+}
+
+#status-page-container .update-info {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 24px;
+}
+
+#status-page-container .update-badge {
+  display: flex;
+  align-items: center;
+  padding: 6px 12px;
+  background-color: var(--status-bg-content);
+  border: 1px solid var(--status-border-color);
+  border-radius: 6px;
+  font-size: 12px;
+  color: var(--status-text-secondary);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+#status-page-container .update-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--status-accent-primary);
+  margin-right: 8px;
+}
+
+#status-page-container .update-time {
+  font-weight: 500;
+  color: var(--status-text-primary);
+}
+
+/* Grids e layouts */
+#status-page-container .grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+#status-page-container .grid-wide {
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* Mantém a proporção original */
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+#status-page-container .sector-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Mais responsivo */
+  gap: 16px;
+  margin-top: 16px;
+}
+
+/* Cards e componentes */
+#status-page-container .card {
+  background-color: var(--status-bg-content);
+  border-radius: 8px;
+  border: 1px solid var(--status-border-color);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+#status-page-container .card-title { /* Usado para Desempenho da Produção e Pontos de Atenção */
+  font-size: 18px; /* Aumentado para destaque */
+  font-weight: 600;
+  color: var(--status-text-primary);
+  margin-bottom: 4px; /* Reduzido para proximidade com descrição */
+}
+#status-page-container .card-description { /* Usado abaixo do card-title */
+  font-size: 13px;
+  color: var(--status-text-secondary);
+  margin-bottom: 16px; /* Espaço antes do conteúdo principal do card */
+}
+#status-page-container .card-content {
+  padding: 16px;
+}
+
+/* KPIs e métricas */
+#status-page-container .kpi-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--status-text-primary);
+  margin-top: 4px; /* Reduzido */
+}
+#status-page-container .kpi-label {
+  font-size: 13px;
+  color: var(--status-text-secondary);
+  margin-bottom: 4px; /* Reduzido */
+}
+#status-page-container .kpi-meta {
+  font-size: 12px;
+  color: var(--status-text-secondary);
+  margin-left: 8px;
+  align-self: flex-end; /* Alinha com a base do kpi-value */
+  margin-bottom: 4px; /* Ajuste fino */
+}
+#status-page-container .kpi-delta {
+  font-size: 12px;
+  color: var(--status-accent-primary);
+  margin-left: 8px;
+  align-self: flex-end;
+  margin-bottom: 4px;
+}
+#status-page-container .kpi-delta-negative {
+  color: var(--status-alert-high);
+}
+
+/* Barras de progresso */
+#status-page-container .progress-bar {
+  width: 100%;
+  height: 10px;
+  background-color: var(--status-border-color); /* Cor de fundo mais clara */
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: 12px;
+}
+#status-page-container .progress-fill {
+  height: 100%;
+  border-radius: 5px;
+  transition: width 0.3s ease;
+}
+#status-page-container .progress-fill-blue { background-color: var(--status-accent-secondary); }
+#status-page-container .progress-fill-green { background-color: var(--status-accent-primary); }
+#status-page-container .progress-fill-amber { background-color: var(--status-alert-medium); }
+#status-page-container .progress-fill-red { background-color: var(--status-alert-high); }
+
+#status-page-container .sector-progress-bar {
+  width: 100%;
+  height: 8px;
+  background-color: var(--status-border-color);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+/* .sector-progress-fill usa as classes .progress-fill-* */
+
+/* Ícones e badges */
+#status-page-container .icon-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 12px;
+}
+#status-page-container .icon-badge {
+  width: 36px; /* Aumentado para melhor visibilidade */
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#status-page-container .icon-badge-blue { background-color: #dbeafe; color: var(--status-accent-secondary); }
+#status-page-container .icon-badge-green { background-color: #d1fae5; color: var(--status-accent-primary); }
+#status-page-container .icon-badge-amber { background-color: #fef3c7; color: var(--status-alert-medium); }
+#status-page-container .icon-badge-red { background-color: #fee2e2; color: var(--status-alert-high); }
+
+/* Tabs e seletores */
+#status-page-container .tab-container {
+  display: flex;
+  border-bottom: 1px solid var(--status-border-color);
+  margin-bottom: 16px;
+}
+#status-page-container .tab {
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px; /* Para sobrepor a borda do container */
+}
+#status-page-container .tab-active {
+  color: var(--status-accent-primary);
+  border-bottom-color: var(--status-accent-primary);
+}
+#status-page-container .tab-inactive {
+  color: var(--status-text-secondary);
+}
+#status-page-container .tab-inactive:hover {
+  color: var(--status-text-primary);
+}
+
+#status-page-container .period-selector {
+  display: flex;
+  background-color: #f1f5f9; /* Cor de fundo do seletor */
+  border-radius: 6px;
+  padding: 4px;
+}
+#status-page-container .period-button {
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none; /* Removida borda padrão */
+}
+#status-page-container .period-button-active {
+  background-color: var(--status-accent-primary);
+  color: #ffffff;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+#status-page-container .period-button-inactive {
+  background-color: transparent;
+  color: var(--status-text-secondary);
+}
+#status-page-container .period-button-inactive:hover {
+  background-color: rgba(100, 116, 139, 0.1);
+}
+
+/* Alertas e notificações */
+#status-page-container .alert-item { /* Usado para gargalos e atrasos */
+  padding: 12px;
+  background-color: var(--status-bg-content);
+  border: 1px solid var(--status-border-color);
+  border-left-width: 4px; /* Destaque na esquerda */
+  border-radius: 6px;
+  margin-bottom: 12px; /* Aumentado espaço */
+}
+#status-page-container .alert-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px; /* Reduzido */
+}
+#status-page-container .alert-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--status-text-primary);
+}
+#status-page-container .alert-badge { /* Badge de impacto/tempo */
+  padding: 3px 10px; /* Ajustado padding */
+  border-radius: 12px; /* Mais arredondado */
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: capitalize; /* Para 'Alto', 'Médio', 'Baixo' */
+}
+#status-page-container .alert-badge-high { background-color: var(--status-alert-high); color: white; }
+#status-page-container .alert-badge-medium { background-color: var(--status-alert-medium); color: white; }
+#status-page-container .alert-badge-low { background-color: var(--status-accent-primary); color: white; }
+
+#status-page-container .alert-description {
+  font-size: 13px; /* Aumentado */
+  color: var(--status-text-secondary);
+  line-height: 1.5;
+}
+
+#status-page-container .critical-alert-header {
+  background-color: #fee2e2; /* Fundo vermelho claro */
+  border-bottom: 1px solid #fecaca;
+  padding: 16px;
+  border-top-left-radius: 8px; /* Para card */
+  border-top-right-radius: 8px;
+}
+#status-page-container .critical-alert-title {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 600;
+  color: #b91c1c; /* Vermelho escuro */
+}
+#status-page-container .critical-alert-icon {
+  margin-right: 8px;
+  color: var(--status-alert-high);
+}
+#status-page-container .critical-alert-item { /* Itens dentro do card de alertas críticos */
+  padding: 12px;
+  background-color: #fff1f2; /* Rosa muito claro */
+  border: 1px solid #ffdde0;
+  border-radius: 6px;
+  margin-bottom: 12px;
+}
+#status-page-container .action-button {
+  padding: 6px 12px;
+  background-color: transparent;
+  border: 1px solid var(--status-alert-high);
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--status-alert-high);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+#status-page-container .action-button:hover {
+  background-color: rgba(239, 68, 68, 0.05); /* Vermelho bem claro no hover */
+}
+
+/* Setores */
+#status-page-container .sector-card {
+  background-color: var(--status-bg-content);
+  border: 1px solid var(--status-border-color);
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+#status-page-container .sector-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--status-text-primary);
+  margin-bottom: 8px;
+}
+#status-page-container .sector-stats {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--status-text-secondary);
+  margin-top: 4px; /* Espaço após a barra */
+}
+
+/* ============================================ */
+/* ESTILOS DO GRÁFICO DE CAPACIDADE POR SETOR   */
+/* (e outros gráficos Recharts se necessário)   */
+/* ============================================ */
+
+/* MODO CLARO - Remove ou altera o cursor/hover azul dos gráficos de barra */
+#status-page-container .recharts-wrapper .recharts-tooltip-cursor {
+  fill: transparent !important; /* Torna o cursor do tooltip transparente */
+  stroke: transparent !important; /* Remove a borda do cursor, se houver */
+}
+
+/* Opcional: Se a própria barra mudar de cor no hover (além do tooltip cursor) */
+/* E você quiser controlar isso: */
+/*
+#status-page-container .recharts-wrapper .recharts-bar-rectangle:hover,
+#status-page-container .recharts-wrapper .recharts-active-bar .recharts-bar-rectangle {
+  fill: rgba(0, 155, 58, 0.1) !important; /* Ex: Verde Valmet bem sutil */
+/* } */
+
+
+@media (max-width: 1200px) {
+  #status-page-container .grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+  }
+  #status-page-container .grid-wide {
+    grid-template-columns: 1fr; 
+  }
+}
+
+@media (max-width: 768px) {
+  #status-page-container .main {
+    margin-left: 0; 
+    padding-top: 80px; 
+  }
+}
+
+/* ============================================ */
+/* ========== DARK MODE OVERRIDES ============= */
+/* ============================================ */
+
+body[data-theme="dark"] #status-page-container {
+  --status-bg-page: #111827;
+  --status-bg-content: #1e293b;
+  --status-text-primary: #f1f5f9;
+  --status-text-secondary: #94a3b8;
+  --status-text-tertiary: #64748b;
+  --status-border-color: #334155;
+  --status-accent-primary: #10b981; 
+  --status-accent-secondary: #60a5fa; 
+  --status-alert-high: #f87171; 
+  --status-alert-medium: #fbbf24; 
+  
+  --status-sidebar-bg: #0f172a; 
+  --status-sidebar-text: #94a3b8;
+  --status-sidebar-text-hover: #e2e8f0;
+  --status-sidebar-item-hover-bg: #1e293b;
+  --status-sidebar-item-active-bg: var(--status-accent-primary);
+  --status-sidebar-item-active-text: #ffffff; 
+}
+
+/* Ajustes gerais para Dark Mode */
+body[data-theme="dark"] #status-page-container .update-badge {
+  background-color: var(--status-bg-content);
+  border-color: var(--status-border-color);
+  color: var(--status-text-secondary);
+}
+body[data-theme="dark"] #status-page-container .update-time {
+  color: var(--status-text-primary);
+}
+
+/* Cards no Dark Mode */
+body[data-theme="dark"] #status-page-container .card {
+  background-color: var(--status-bg-content);
+  border-color: var(--status-border-color);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3), 0 1px 2px rgba(0,0,0,0.25); 
+}
+body[data-theme="dark"] #status-page-container .card-title,
+body[data-theme="dark"] #status-page-container .kpi-value,
+body[data-theme="dark"] #status-page-container .alert-title,
+body[data-theme="dark"] #status-page-container .sector-name {
+  color: var(--status-text-primary);
+}
+body[data-theme="dark"] #status-page-container .card-description,
+body[data-theme="dark"] #status-page-container .kpi-label,
+body[data-theme="dark"] #status-page-container .kpi-meta,
+body[data-theme="dark"] #status-page-container .text-sm.text-gray-600, 
+#status-page-container .alert-timestamp, 
+#status-page-container .alert-description, 
+#status-page-container .sector-stats, 
+#status-page-container .text-center.p-4.text-gray-600 { 
+  color: var(--status-text-secondary);
+}
+body[data-theme="dark"] #status-page-container .kpi-delta { color: var(--status-accent-primary); }
+body[data-theme="dark"] #status-page-container .kpi-delta-negative { color: var(--status-alert-high); }
+
+
+/* Barras de Progresso no Dark Mode */
+body[data-theme="dark"] #status-page-container .progress-bar,
+body[data-theme="dark"] #status-page-container .sector-progress-bar {
+  background-color: #334155; 
+}
+
+/* Ícones e Badges no Dark Mode */
+body[data-theme="dark"] #status-page-container .icon-badge-blue { background-color: rgba(96, 165, 250, 0.2); color: var(--status-accent-secondary); }
+body[data-theme="dark"] #status-page-container .icon-badge-green { background-color: rgba(16, 185, 129, 0.2); color: var(--status-accent-primary); }
+body[data-theme="dark"] #status-page-container .icon-badge-amber { background-color: rgba(251, 191, 36, 0.2); color: var(--status-alert-medium); }
+body[data-theme="dark"] #status-page-container .icon-badge-red { background-color: rgba(248, 113, 113, 0.2); color: var(--status-alert-high); }
+
+/* Tabs e Seletores no Dark Mode */
+body[data-theme="dark"] #status-page-container .tab-container {
+  border-bottom-color: var(--status-border-color);
+}
+body[data-theme="dark"] #status-page-container .tab-active {
+  color: var(--status-accent-primary);
+  border-bottom-color: var(--status-accent-primary);
+}
+body[data-theme="dark"] #status-page-container .tab-inactive {
+  color: var(--status-text-secondary);
+}
+body[data-theme="dark"] #status-page-container .tab-inactive:hover {
+  color: var(--status-text-primary);
+}
+body[data-theme="dark"] #status-page-container .period-selector {
+  background-color: #334155; 
+}
+body[data-theme="dark"] #status-page-container .period-button-active {
+  background-color: var(--status-accent-primary);
+  color: #0f172a; 
+}
+body[data-theme="dark"] #status-page-container .period-button-inactive {
+  color: var(--status-text-secondary);
+}
+body[data-theme="dark"] #status-page-container .period-button-inactive:hover {
+  background-color: rgba(71, 85, 105, 0.5); 
+}
+
+/* Alertas e Notificações no Dark Mode */
+body[data-theme="dark"] #status-page-container .alert-item {
+  background-color: var(--status-bg-content);
+  border-color: var(--status-border-color);
+  border-left-color: #4b5563; 
+}
+body[data-theme="dark"] #status-page-container .alert-item:hover {
+  border-left-color: var(--status-accent-primary);
+}
+body[data-theme="dark"] #status-page-container .alert-badge-high { background-color: rgba(248, 113, 113, 0.2); color: var(--status-alert-high); }
+body[data-theme="dark"] #status-page-container .alert-badge-medium { background-color: rgba(251, 191, 36, 0.2); color: var(--status-alert-medium); }
+body[data-theme="dark"] #status-page-container .alert-badge-low { background-color: rgba(16, 185, 129, 0.2); color: var(--status-accent-primary); }
+
+body[data-theme="dark"] #status-page-container .critical-alert-header {
+  background-color: rgba(239, 68, 68, 0.15); 
+  border-bottom-color: rgba(185, 28, 28, 0.5); 
+  color: #fecaca; 
+}
+body[data-theme="dark"] #status-page-container .critical-alert-title {
+  color: var(--status-alert-high);
+}
+body[data-theme="dark"] #status-page-container .critical-alert-icon {
+  color: var(--status-alert-high);
+}
+body[data-theme="dark"] #status-page-container .critical-alert-item {
+  background-color: rgba(76, 29, 29, 0.3); 
+  border-color: rgba(185, 28, 28, 0.4);
+}
+body[data-theme="dark"] #status-page-container .action-button {
+  border-color: var(--status-alert-high);
+  color: var(--status-alert-high);
+}
+body[data-theme="dark"] #status-page-container .action-button:hover {
+  background-color: rgba(239, 68, 68, 0.1);
+}
+
+/* Setores no Dark Mode */
+body[data-theme="dark"] #status-page-container .sector-card {
+  background-color: var(--status-bg-content);
+  border-color: var(--status-border-color);
+}
+
+/* Placeholder do gráfico (se usado) */
+body[data-theme="dark"] #status-page-container .graph-placeholder {
+  border-color: var(--status-border-color);
+  color: var(--status-text-tertiary);
+}
+
+/* Placeholder para "Nenhum alerta/gargalo" */
+body[data-theme="dark"] #status-page-container .text-center.p-4.text-gray-600 {
+    color: var(--status-text-secondary);
+}
+body[data-theme="dark"] #status-page-container .font-semibold.text-gray-800 {
+    color: var(--status-text-primary);
+}
+
+/* MODO ESCURO - Remove ou altera o cursor/hover azul dos gráficos de barra */
+body[data-theme="dark"] #status-page-container .recharts-wrapper .recharts-tooltip-cursor {
+  fill: transparent !important; /* Torna o cursor do tooltip transparente */
+  stroke: transparent !important;
+}
+/* Opcional para hover da barra em si no modo escuro: */
+/*
+body[data-theme="dark"] #status-page-container .recharts-wrapper .recharts-bar-rectangle:hover,
+body[data-theme="dark"] #status-page-container .recharts-wrapper .recharts-active-bar .recharts-bar-rectangle {
+  fill: rgba(0, 179, 98, 0.2) !important; /* Ex: Verde Valmet mais vibrante e sutil */
+/* } */
+
+
+/* Responsividade para Dark Mode (se necessário) */
+@media (max-width: 768px) { 
+  body[data-theme="dark"] #status-page-container .app-sidebar {
+    background-color: #0f172a; 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.4); 
+  }
+}

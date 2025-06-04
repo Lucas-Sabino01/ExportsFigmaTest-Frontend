@@ -1,0 +1,152 @@
+{
+  "success": true,
+  "project": {
+    "name": "Controle Mensal de RNC por Área",
+    "calendar": "industrial",
+    "startDate": "2025-01-01",
+    "hoursPerDay": 8,
+    "daysPerWeek": 5,
+    "daysPerMonth": 22
+  },
+  "tasks": {
+    "rows": [
+      {
+        "id": 1,
+        "name": "USI",
+        "JAN": 2,
+        "FEV": 1,
+        "MAR": 3,
+        "ABR": 2,
+        "MAI": 1,
+        "JUN": 0,
+        "JUL": 1,
+        "AGO": 2,
+        "OUT": 1,
+        "NOV": 0,
+        "DEZ": 1,
+        "TOTAL": 14
+      },
+      {
+        "id": 2,
+        "name": "CAL",
+        "JAN": 0,
+        "FEV": 1,
+        "MAR": 0,
+        "ABR": 1,
+        "MAI": 0,
+        "JUN": 0,
+        "JUL": 0,
+        "AGO": 0,
+        "OUT": 0,
+        "NOV": 0,
+        "DEZ": 0,
+        "TOTAL": 2
+      },
+      {
+        "id": 3,
+        "name": "SDA",
+        "JAN": 1,
+        "FEV": 0,
+        "MAR": 0,
+        "ABR": 0,
+        "MAI": 0,
+        "JUN": 0,
+        "JUL": 0,
+        "AGO": 0,
+        "OUT": 0,
+        "NOV": 0,
+        "DEZ": 0,
+        "TOTAL": 1
+      },
+      {
+        "id": 4,
+        "name": "MTG",
+        "JAN": 0,
+        "FEV": 0,
+        "MAR": 1,
+        "ABR": 1,
+        "MAI": 0,
+        "JUN": 0,
+        "JUL": 0,
+        "AGO": 0,
+        "OUT": 0,
+        "NOV": 0,
+        "DEZ": 0,
+        "TOTAL": 2
+      },
+      {
+        "id": 5,
+        "name": "EXP",
+        "JAN": 0,
+        "FEV": 0,
+        "MAR": 0,
+        "ABR": 0,
+        "MAI": 0,
+        "JUN": 0,
+        "JUL": 0,
+        "AGO": 0,
+        "OUT": 0,
+        "NOV": 0,
+        "DEZ": 0,
+        "TOTAL": 0
+      },
+      {
+        "id": 6,
+        "name": "FER",
+        "JAN": 0,
+        "FEV": 0,
+        "MAR": 0,
+        "ABR": 0,
+        "MAI": 0,
+        "JUN": 0,
+        "JUL": 0,
+        "AGO": 0,
+        "OUT": 0,
+        "NOV": 0,
+        "DEZ": 0,
+        "TOTAL": 0
+      },
+      {
+        "id": 7,
+        "name": "ENG.F",
+        "JAN": 0,
+        "FEV": 0,
+        "MAR": 0,
+        "ABR": 0,
+        "MAI": 0,
+        "JUN": 0,
+        "JUL": 0,
+        "AGO": 0,
+        "OUT": 0,
+        "NOV": 0,
+        "DEZ": 0,
+        "TOTAL": 0
+      },
+      {
+        "id": 8,
+        "name": "ENG.P",
+        "JAN": 0,
+        "FEV": 0,
+        "MAR": 0,
+        "ABR": 0,
+        "MAI": 0,
+        "JUN": 0,
+        "JUL": 0,
+        "AGO": 0,
+        "OUT": 0,
+        "NOV": 0,
+        "DEZ": 0,
+        "TOTAL": 0
+      }
+    ]
+  },
+  "resources": {
+    "rows": []
+  },
+  "assignments": {
+    "rows": []
+  },
+  "calendars": {
+    "rows": []
+  }
+}

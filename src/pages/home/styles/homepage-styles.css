@@ -1,0 +1,722 @@
+/* homepage-styles.css */
+
+/* Estilos para os botões personalizados com efeito de glow */
+/* Estilos para os botões personalizados com efeito de glow */
+.custom-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  border-radius: 15px; /* Raio da borda externa do botão */
+  background-color: white; /* MODO CLARO */
+  /* A linha abaixo define uma cor de fundo, mas é sobrescrita pela próxima */
+  background-color: rgba(255, 255, 255, 0.8); /* Fundo branco semitransparente */
+  color: #333; /* MODO CLARO - Cor do texto */
+  font-family: 'Tauri', Helvetica, sans-serif;
+  font-size: 36px;
+  font-weight: 500;
+  /* ESTA É A LINHA QUE CRIA A BORDA DE 4PX VERDE */
+  border: 4px solid #009b3a; /* Largura e cor da borda do botão */
+  box-shadow: -5px 13px 19.6px rgba(0, 0, 0, 0.25); /* Sombra */
+  transition: all 0.3s ease;
+  cursor: pointer;
+  overflow: hidden; /* Importante para o efeito do ::after e para clipar cantos */
+  text-decoration: none;
+}
+
+/* Efeito no canto do botão */
+.custom-button::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  background-color: #009b3a; /* Cor verde, mesma da borda */
+  border-top-left-radius: 30px;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+/* Efeitos ao passar o mouse (hover) */
+.custom-button:hover {
+  transform: translateY(-5px);
+  /* A sombra no hover inclui um "glow" verde */
+  box-shadow: 0 0 20px 8px rgba(0, 155, 58, 0.6), -5px 18px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* O ::after se expande no hover */
+.custom-button:hover::after {
+  width: 100%;
+  height: 100%;
+  border-radius: 11px; /* Antes era 14px */
+}
+
+.custom-button:hover .button-text {
+  color: black; 
+  position: relative;
+  z-index: 2;
+}
+
+.custom-button.config { /* Assuming this is for a specific config button style */
+  background-color: #009b3a;
+}
+
+.custom-button.config .button-text {
+  color: white;
+}
+
+/* Animação suavizada para o slogan */
+@keyframes fadeInOutSlogan { /* Renamed to avoid conflict if used elsewhere */
+  0% { opacity: 0; transform: translateY(10px); }
+  20% { opacity: 1; transform: translateY(0); }
+  80% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-10px); }
+}
+
+.slogan-animation {
+  animation: fadeInOutSlogan 2.8s ease-in-out infinite; /* Added infinite to keep animation running */
+}
+
+/* Estilos para as seções da fábrica */
+.facility-section {
+  transition: all 0.3s ease;
+}
+
+.facility-section:hover {
+  transform: scale(1.05);
+  z-index: 10;
+  opacity: 1 !important; /* Ensure hover opacity overrides base */
+}
+
+.facility-marker {
+  transition: all 0.3s ease;
+}
+
+.facility-section:hover .facility-marker {
+  transform: scale(1.1) translateY(-5px);
+}
+
+/* Estilos para o Teclado Virtual */
+.myVirtualKeyboardTheme {
+  background-color: #f0f2f5; /* Fundo do container do teclado - MODO CLARO */
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+.myVirtualKeyboardTheme .hg-theme-default {
+  border-radius: 6px;
+  overflow: hidden; /* Para arredondar o teclado interno */
+}
+.myVirtualKeyboardTheme .hg-button {
+  font-family: 'Roboto', sans-serif; /* Garante a fonte Roboto no teclado */
+  height: 50px !important; /* Aumenta a altura dos botões */
+  font-size: 1.1rem !important; /* Aumenta o tamanho da fonte nos botões */
+  background-color: #ffffff; /* Fundo dos botões - MODO CLARO */
+  color: #333333; /* Texto dos botões - MODO CLARO */
+  border: 1px solid #d1d5db; /* Borda dos botões - MODO CLARO */
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+.myVirtualKeyboardTheme .hg-button:hover {
+  background-color: #e9ecef; /* Hover dos botões - MODO CLARO */
+}
+.myVirtualKeyboardTheme .hg-button:active {
+  background-color: #d1d5db; /* Active dos botões - MODO CLARO */
+}
+/* Botões especiais */
+.myVirtualKeyboardTheme .hg-button-space {
+  width: 40% !important; /* Ajusta a largura do espaço */
+  background-color: #f8fafc; /* MODO CLARO */
+}
+.myVirtualKeyboardTheme .hg-button-enter {
+  background-color: #009b3a; /* Cor primária para Enter - MODO CLARO */
+  color: white;
+}
+.myVirtualKeyboardTheme .hg-button-enter:hover {
+  background-color: #007c2e;
+}
+.myVirtualKeyboardTheme .hg-button-bksp {
+  background-color: #f8fafc; /* MODO CLARO */
+}
+
+.keyboard-header {
+  padding: 0.5rem 0.75rem;
+  background-color: #e9ecef; /* Fundo do cabeçalho do teclado - MODO CLARO */
+  border-bottom: 1px solid #d1d5db; /* Borda do cabeçalho - MODO CLARO */
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  margin-bottom: -1px; /* Para sobrepor a borda superior do teclado */
+}
+.txt-tecladovirtual {
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: #374151; /* Cor do texto do cabeçalho - MODO CLARO */
+}
+.close-keyboard-button {
+  background-color: #fff; /* MODO CLARO */
+  border: 1px solid #d1d5db; /* MODO CLARO */
+  color: #4b5563; /* MODO CLARO */
+}
+.close-keyboard-button:hover {
+  background-color: #f3f4f6; /* MODO CLARO */
+}
+
+/* Estilos gerais da HomePage para modo claro */
+#homepage-container .bg-white { /* O container principal da página */
+    background-color: #ffffff; /* MODO CLARO */
+}
+#homepage-container .slogan-move-forward {
+    color: #000000; /* MODO CLARO */
+}
+#homepage-container .facility-description {
+    color: #000000; /* MODO CLARO */
+}
+#homepage-container .facility-name {
+    color: #050404; /* MODO CLARO */
+}
+#homepage-container .separator-line {
+    background-color: #000000; /* MODO CLARO */
+}
+#homepage-container .search-card {
+    background-color: #E0E0E0; /* MODO CLARO */
+}
+#homepage-container .search-icon-img {
+    filter: none; /* MODO CLARO */
+}
+#homepage-container .search-separator {
+    background-color: #a0aec0; /* MODO CLARO - Cinza para o separador */
+}
+#homepage-container .search-input-field {
+    color: #1f2937; /* MODO CLARO - Texto escuro no input */
+}
+#homepage-container .search-input-field::placeholder {
+    color: #6b7280; /* MODO CLARO - Placeholder cinza */
+}
+#homepage-container .keyboard-icon-img {
+    filter: none; /* MODO CLARO */
+}
+/* Estilo para o seletor de idioma no modo claro */
+#homepage-container .language-selector-bg { /* Adicione esta classe ao div com w-[187px] */
+    background-color: #ffffff; /* MODO CLARO */
+}
+#homepage-container .language-selector-text { /* Adicione esta classe ao span 'PT' */
+    color: #ffffff; /* MODO CLARO - Texto branco no botão verde */
+}
+
+
+/* ============================================ */
+/* ========== DARK MODE OVERRIDES ============= */
+/* ============================================ */
+
+body[data-theme="dark"] #homepage-container {
+  background-color: #111827; /* Fundo principal bem escuro */
+}
+body[data-theme="dark"] #homepage-container .bg-white { /* Seletor para o container que era branco */
+    background-color: #111827; /* Mesmo fundo principal escuro */
+}
+
+body[data-theme="dark"] .custom-button {
+  background-color: rgba(30, 41, 59, 0.8); /* Fundo do botão escuro com opacidade */
+  color: #e2e8f0; /* Texto claro */
+  border-color: #00b341; /* Borda verde mais vibrante */
+  box-shadow: -5px 13px 19.6px rgba(0, 0, 0, 0.45);
+}
+body[data-theme="dark"] .custom-button::after {
+  background-color: #00b341;
+}
+body[data-theme="dark"] .custom-button:hover {
+  box-shadow: 0 0 20px 8px rgba(0, 179, 65, 0.7), -5px 18px 25px rgba(0, 0, 0, 0.4);
+}
+body[data-theme="dark"] .custom-button:hover .button-text {
+  color: #f0fdf4; /* Texto do botão no hover - verde bem claro */
+}
+body[data-theme="dark"] .custom-button.config {
+  background-color: #00b341;
+}
+body[data-theme="dark"] .custom-button.config .button-text {
+  color: #111827; /* Texto escuro para contraste no botão config */
+}
+
+body[data-theme="dark"] #homepage-container .slogan-move-forward {
+  color: #e2e8f0; /* Slogan claro */
+}
+body[data-theme="dark"] #homepage-container .slogan-with-us { /* O texto que alterna */
+  color: #00b341; /* Verde Valmet mais vibrante */
+}
+
+
+body[data-theme="dark"] .facility-section {
+  opacity: 0.8; /* Um pouco menos opaco no dark mode para destacar o hover */
+}
+body[data-theme="dark"] .facility-section:hover {
+  opacity: 1 !important;
+}
+/* As imagens de mapa (map-usinagem.png, etc.) podem precisar de versões escuras ou filtros CSS */
+/* Exemplo de filtro (pode não ser ideal para todas as imagens): */
+
+body[data-theme="dark"] .facility-section {
+  filter: brightness(0.8) contrast(1.2);
+}
+
+
+body[data-theme="dark"] #homepage-container .facility-description {
+  color: #cbd5e1; /* Descrição da seção mais clara */
+}
+body[data-theme="dark"] #homepage-container .facility-name {
+  color: #f1f5f9; /* Nome da seção bem claro */
+}
+body[data-theme="dark"] #homepage-container .facility-badge-number {
+  color: #1e293b; /* Número escuro no badge para contraste com a cor do badge */
+}
+
+
+body[data-theme="dark"] #homepage-container .separator-line {
+  background-color: #4b5563; /* Separador mais claro */
+}
+
+body[data-theme="dark"] #homepage-container .search-card {
+  background-color: #1e293b; /* Fundo da barra de pesquisa escuro */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+body[data-theme="dark"] #homepage-container .search-icon-img {
+  filter: invert(80%) brightness(150%) saturate(0%); /* Torna o ícone de pesquisa claro */
+}
+body[data-theme="dark"] #homepage-container .search-separator {
+  background-color: #4b5563; /* Separador da busca mais claro */
+}
+body[data-theme="dark"] #homepage-container .search-input-field {
+  color: #e2e8f0; /* Texto do input claro */
+}
+body[data-theme="dark"] #homepage-container .search-input-field::placeholder {
+  color: #64748b; /* Placeholder mais sutil */
+}
+body[data-theme="dark"] #homepage-container .keyboard-icon-img {
+  filter: invert(80%) brightness(150%) saturate(0%); /* Torna o ícone do teclado claro */
+}
+
+/* Teclado Virtual no Dark Mode */
+body[data-theme="dark"] .myVirtualKeyboardTheme {
+  background-color: #1e293b;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+body[data-theme="dark"] .myVirtualKeyboardTheme .hg-button {
+  background-color: #334155;
+  color: #e2e8f0;
+  border: 1px solid #4b5563;
+}
+body[data-theme="dark"] .myVirtualKeyboardTheme .hg-button:hover {
+  background-color: #475569;
+}
+body[data-theme="dark"] .myVirtualKeyboardTheme .hg-button:active {
+  background-color: #525f76;
+}
+body[data-theme="dark"] .myVirtualKeyboardTheme .hg-button-space {
+  background-color: #475569;
+}
+body[data-theme="dark"] .myVirtualKeyboardTheme .hg-button-enter {
+  background-color: #00b341; /* Verde Valmet mais vibrante */
+  color: #111827; /* Texto escuro para contraste */
+}
+body[data-theme="dark"] .myVirtualKeyboardTheme .hg-button-enter:hover {
+  background-color: #009c38;
+}
+body[data-theme="dark"] .myVirtualKeyboardTheme .hg-button-bksp {
+  background-color: #475569;
+}
+body[data-theme="dark"] .keyboard-header {
+  background-color: #334155;
+  border-bottom-color: #4b5563;
+}
+body[data-theme="dark"] .txt-tecladovirtual {
+  color: #cbd5e1;
+}
+body[data-theme="dark"] .close-keyboard-button {
+  background-color: #334155;
+  border-color: #4b5563;
+  color: #cbd5e1;
+}
+body[data-theme="dark"] .close-keyboard-button:hover {
+  background-color: #475569;
+}
+
+/* Seletor de Idioma no Dark Mode */
+body[data-theme="dark"] #homepage-container .language-selector-bg { /* Div com w-[187px] */
+    background-color: #1e293b; /* Fundo escuro */
+    box-shadow: -5px 13px 19.6px rgba(0, 0, 0, 0.5);
+}
+body[data-theme="dark"] #homepage-container .language-selector-text { /* Span 'PT' */
+    color: #ffffff; /* Texto branco no botão verde (já está assim, mas para garantir) */
+}
+/* O botão verde do seletor de idioma e a bandeira geralmente não precisam de muitas alterações
+   pois já têm cores definidas, mas você pode ajustar se necessário. */
+
+body[data-theme="dark"] #homepage-container img[alt="Rua"],
+body[data-theme="dark"] #homepage-container img[alt^="Linha de conexão"] {
+     filter: invert(1) hue-rotate(180deg) brightness(1.5);  /* Exemplo para inverter e ajustar SVGs/PNGs de linhas */
+}
+
+
+/* Novos estilos para os controles do topo */
+.homepage-top-controls { /* Alterado de .mapa-top-controls */
+  position: absolute;
+  top: 52px; /* Mantido do seu layout original */
+  right: 50px; /* Ajustado para um espaçamento razoável */
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Espaço entre os seletores */
+  z-index: 20; /* Para garantir que fiquem acima de outros elementos */
+}
+
+/* Seletor de Idioma */
+.language-selector-wrapper {
+  position: relative;
+  display: flex; 
+  align-items: center;
+  background-color: var(--language-selector-bg); 
+  border: 1px solid var(--border-color-light);
+  border-radius: 40px; 
+  padding: 0; 
+  box-shadow: -5px 13px 19.6px rgba(0,0,0,0.25); 
+  height: 72px; 
+  width: 189px; 
+}
+
+.language-selector-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    width: 100%;
+    height: 100%;
+    padding-left: 18px; 
+}
+
+
+.language-flag-selected {
+  width: 77px;  
+  height: 53px; 
+  object-fit: cover;
+  border-radius: 4px; 
+}
+
+.language-dropdown-button {
+  background-color: var(--language-button-bg); 
+  border: none;
+  border-radius: 0 40px 40px 0; 
+  width: 86px; 
+  height: 100%; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  transition: background-color 0.2s ease;
+  margin-left: 0; 
+}
+
+.language-dropdown-button:hover {
+  background-color: var(--language-button-hover-bg); 
+}
+
+.language-arrow-icon {
+  width: 23px; 
+  height: 14px; 
+  filter: brightness(0) invert(1); 
+}
+
+.language-options-list {
+  position: absolute;
+  top: calc(100% + 8px); 
+  right: 0;
+  background-color: var(--dropdown-bg);
+  border: 1px solid var(--border-color-light);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  list-style: none;
+  padding: 8px 0;
+  margin: 0;
+  min-width: 220px; /* Aumentado para acomodar texto maior */
+  z-index: 1002;
+}
+
+.language-option-item {
+  padding: 12px 18px; /* Aumentado padding */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Aumentado gap */
+  font-size: 25px; /* Aumentado tamanho da fonte */
+  color: var(--text-color-light);
+  transition: background-color 0.2s ease;
+}
+
+.language-option-item:hover {
+  background-color: var(--dropdown-hover-bg);
+}
+
+.language-flag-option {
+  width: 40px; 
+  height: 30px;
+  object-fit: cover;
+  border-radius: 3px;
+}
+.language-name-option {
+  font-family: 'Tauri', Helvetica, sans-serif;
+}
+
+
+/* Dark Mode Toggle Button */
+.dark-mode-toggle-button {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 95px; /* Aumentado */
+  height: 50px; /* Aumentado */
+  margin-left: 25px; /* Aumentada margem à esquerda */
+}
+
+.dark-mode-toggle-track {
+  width: 90px; /* Aumentado proporcionalmente */
+  height: 46px; /* Aumentado proporcionalmente */
+  background-color: var(--toggle-track-bg); 
+  border-radius: 23px; /* Metade da nova altura */
+  padding: 5px; /* Ajustado padding */
+  position: relative;
+  transition: background-color 0.3s ease;
+  display: flex; 
+  align-items: center; 
+  box-shadow: inset 0 1px 4px rgba(0,0,0,0.2); 
+}
+
+.dark-mode-toggle-thumb {
+  background-color: var(--toggle-thumb-bg); 
+  border-radius: 50%;
+  height: 36px; /* Aumentado */
+  width: 36px;  /* Aumentado */
+  position: absolute;
+  top: 5px; /* Ajustado com base no padding do track */
+  left: 5px; /* Ajustado com base no padding do track */
+  transition: transform 0.3s ease cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.3s ease; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+}
+
+body[data-theme="dark"] .dark-mode-toggle-track {
+  background-color: var(--toggle-track-bg-dark); 
+}
+body[data-theme="dark"] .dark-mode-toggle-thumb {
+  transform: translateX(44px); /* (Nova Largura Track - 2*Padding - Nova Largura Thumb) = (90 - 10 - 36) = 44px */
+  background-color: var(--toggle-thumb-bg-dark); 
+}
+
+.dark-mode-icon svg { 
+  width: 24px; /* Aumentando o tamanho do SVG */
+  height: 24px; /* Aumentando o tamanho do SVG */
+}
+.dark-mode-icon { 
+  color: var(--icon-color-sun); 
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+}
+body[data-theme="dark"] .dark-mode-icon {
+  color: var(--icon-color-moon); 
+}
+
+.language-selector-container .language-flag-selected {
+    width: 77px;
+    height: 53px;
+}
+
+.language-selector-container .language-dropdown-button {
+    width: 86px;
+    height: 100%; 
+    border-radius: 0 40px 40px 0; 
+    margin-left: 0; 
+}
+
+.language-selector-wrapper {
+    width: 189px; 
+}
+:root{
+  --background-color: #ffffff;
+  --text-color: #333333;
+  --text-color-light: #333333; /* Para texto em fundos claros */
+  --text-color-dark: #e0e0e0;  /* Para texto em fundos escuros */
+  --border-color-light: #ccc;
+  --border-color-dark: #555;
+  
+  --language-selector-bg: #ffffff;
+  --language-selector-bg-dark: #3a3a3a;
+  --language-button-bg: #009b3a;
+  --language-button-bg-dark: #16a085;
+  --language-button-hover-bg: #007a2e;
+  --language-button-hover-bg-dark: #117a65;
+  
+  --dropdown-bg: white;
+  --dropdown-bg-dark: #3a3a3a;
+  --dropdown-hover-bg: #f0f0f0;
+  --dropdown-hover-bg-dark: #4f4f4f;
+  
+  --toggle-track-bg: #ccc;
+  --toggle-track-bg-dark: #555;
+  --toggle-thumb-bg: white;
+  --toggle-thumb-bg-dark: #333;
+  --icon-color-sun: #f39c12;
+  --icon-color-moon: #f1c40f;
+
+  --keyboard-bg: #e0e0e0;
+  --keyboard-bg-dark: #2d2d2d;
+  --keyboard-button-bg: #fff;
+  --keyboard-button-text: #333;
+  --keyboard-button-border: #ccc;
+  --keyboard-button-bg-dark: #444;
+  --keyboard-button-text-dark: #f0f0f0;
+  --keyboard-button-border-dark: #555;
+  --keyboard-button-hover-bg: #f8f8f8;
+  --keyboard-button-hover-bg-dark: #505050;
+  --keyboard-space-bg: #d1d1d1;
+  --keyboard-space-bg-dark: #3e3e3e;
+  --keyboard-enter-bg: #a5d6a7;
+  --keyboard-enter-text: #1b5e20;
+  --keyboard-enter-bg-dark: #2e7d32;
+  --keyboard-enter-text-dark: #e8f5e9;
+  --keyboard-bksp-bg: #ef9a9a;
+  --keyboard-bksp-text: #c62828;
+  --keyboard-bksp-bg-dark: #d32f2f;
+  --keyboard-bksp-text-dark: #ffebee;
+
+  --button-secondary-bg: #e0e0e0;
+  --button-secondary-text: #333;
+  --button-secondary-border: #ccc;
+  --button-secondary-bg-dark: #444;
+  --button-secondary-text-dark: #f0f0f0;
+  --button-secondary-border-dark: #555;
+  /* Variáveis para o botão de Logout */
+  --button-logout-bg: #ef4444; /* Tailwind red-500 */
+  --button-logout-hover-bg: #dc2626; /* Tailwind red-600 */
+  --button-logout-text: #ffffff; /* Texto branco */
+  --button-logout-bg-dark: #b91c1c; /* Vermelho mais escuro para dark mode */
+  --button-logout-hover-bg-dark: #991b1b; /* Vermelho ainda mais escuro para dark mode hover */
+  --button-logout-text-dark: #f8fafc; /* Texto quase branco para dark mode */
+}
+/* homepage-styles.css */
+
+/* ... (seu código CSS existente acima) ... */
+
+
+/* Estilos gerais da HomePage para modo claro */
+#homepage-container .bg-white { /* O container principal da página */
+    background-color: #ffffff; /* MODO CLARO */
+}
+/* ... (outros estilos existentes do modo claro) ... */
+
+
+/* --- Novos estilos para o botão de logout e texto de usuário --- */
+
+/* Estilo para o container de informações do usuário no header */
+.user-info-controls {
+  color: var(--text-color); /* Usa a variável de cor de texto padrão */
+}
+
+/* Estilo para o texto de nome de usuário e papel */
+.user-info-text {
+  font-family: 'Roboto', sans-serif; /* Ou a fonte que você estiver usando */
+  font-weight: 600; /* Mais negrito (semibold) */
+  font-size: 1.125rem; /* Tamanho do texto (lg) */
+  color: var(--text-color); /* Usa a variável de cor de texto padrão */
+}
+
+.logout-button:hover {
+  background-color: var(--button-logout-hover-bg); /* Cor ao passar o mouse */
+}
+
+
+/* ============================================ */
+/* ========== DARK MODE OVERRIDES ============= */
+/* ============================================ */
+
+/* ... (seu código CSS existente do Dark Mode acima) ... */
+
+body[data-theme="dark"] .user-info-controls {
+  color: var(--text-color-dark); /* Texto mais claro no modo escuro */
+}
+
+body[data-theme="dark"] .user-info-text {
+  color: var(--text-color-dark); /* Texto mais claro no modo escuro */
+}
+
+body[data-theme="dark"] .logout-button {
+  background-color: var(--button-logout-bg-dark); /* Cor de fundo no modo escuro */
+  color: var(--button-logout-text-dark); /* Cor do texto no modo escuro */
+}
+
+body[data-theme="dark"] .logout-button:hover {
+  background-color: var(--button-logout-hover-bg-dark); /* Cor ao passar o mouse no modo escuro */
+}
+/* NOVO ESTILO: Para o contentor de informações do utilizador no canto inferior direito */
+.homepage-bottom-right-controls {
+  position: absolute;
+  bottom: 50px; /* Distância da parte inferior */
+  right: 50px; /* Distância da parte direita */
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Espaçamento entre os elementos */
+  z-index: 20; /* Garante que fique acima de outros elementos */
+  /* --- ESTILO DE DEPURACAO TEMPORARIO --- */
+  background-color: rgba(255, 0, 0, 0.3); /* Um fundo vermelho semi-transparente para ver onde ele está */
+  padding: 10px; /* Para ver melhor o fundo */
+  border-radius: 8px; /* Para ver melhor o fundo */
+  /* --- FIM DO ESTILO DE DEPURACAO --- */
+}
+/* Estilo para o texto de nome de usuário e papel */
+.user-info-text {
+  font-family: 'Roboto', sans-serif; /* Ou a fonte que você estiver usando */
+  font-weight: 600; /* Mais negrito (semibold) */
+  font-size: 1.5rem; /* AUMENTADO: de 1.125rem para 1.5rem (equivalente a text-xl ou text-2xl) */
+  color: var(--text-color); /* Usa a variável de cor de texto padrão */
+  white-space: nowrap; /* Evita que o texto quebre em várias linhas */
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2); /* Adiciona uma pequena sombra para destacar */
+}
+
+/* Estilo para o botão de logout */
+.logout-button {
+  background-color: var(--button-logout-bg); /* Cor de fundo (definiremos em :root) */
+  color: var(--button-logout-text); /* Cor do texto (definiremos em :root) */
+  font-weight: 700;
+  padding: 0.75rem 1.5rem; /* AUMENTADO: de 0.5rem 1rem para 0.75rem 1.5rem (equivalente a py-3 px-6) */
+  border-radius: 0.5rem; /* AUMENTADO: de 0.375rem para 0.5rem (equivalente a rounded-lg) */
+  transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Adicionado box-shadow na transição */
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem; /* AUMENTADO: de 0.875rem para 1.1rem (um pouco maior que text-lg) */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Sombra para dar mais profundidade */
+}
+
+.logout-button:hover {
+  background-color: var(--button-logout-hover-bg); /* Cor ao passar o mouse */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Sombra maior no hover */
+}
+
+/* ... (restante do seu código CSS abaixo, incluindo overrides para dark mode) ... */
+
+/* Exemplo de ajuste para telas grandes (se o ScaleWrapper não for suficiente) */
+@media (min-width: 1920px) { /* Para telas Full HD e maiores, como a de 86" */
+    .user-info-text {
+        font-size: 2rem; /* Ainda maior para telas gigantes */
+    }
+    .logout-button {
+        padding: 1rem 2rem; /* Botão ainda maior */
+        font-size: 1.3rem; /* Texto maior no botão */
+    }
+    /* Você pode ajustar o gap do .homepage-bottom-right-controls aqui também se precisar */
+    .homepage-bottom-right-controls {
+        gap: 30px; /* Mais espaço entre texto e botão */
+    }
+}

@@ -1,0 +1,94 @@
+/* homepage-scale-solution.css */
+
+/* Este arquivo contém os estilos para o mecanismo ScaleWrapper.
+  O objetivo é escalar um layout de dimensões fixas (definido em .scale-container)
+  para se ajustar à viewport do navegador, mantendo a proporção.
+  A lógica de cálculo do fator de escala e centralização é feita via JavaScript.
+*/
+
+/* .scale-wrapper:
+  - Ocupa toda a viewport (largura e altura).
+  - Atua como o contêiner de referência para o .scale-container posicionado absolutamente.
+  - overflow: hidden garante que, se o conteúdo escalado por algum motivo exceder 
+    o wrapper (improvável com a lógica de Math.min para o fator de escala), 
+    ele será cortado.
+  - background-color é definido para o modo claro e sobrescrito para o modo escuro.
+*/
+.scale-wrapper {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden; 
+  position: relative; 
+  background-color: #f0f2f5; /* Cor de fundo padrão para o wrapper (MODO CLARO) */
+  transition: background-color 0.3s ease; /* Transição suave da cor de fundo */
+}
+
+/* Ajuste do background do wrapper para o tema escuro */
+body[data-theme="dark"] .scale-wrapper {
+  background-color: #111827; /* Cor de fundo para o wrapper (MODO ESCURO) */
+}
+
+/*
+  .scale-container:
+  - Define as dimensões fixas originais do seu design (ex: 3840x2160).
+  - transform-origin: top left; é crucial porque a escala e o posicionamento (top, left) 
+    calculados pelo JavaScript assumem esta origem.
+  - position: absolute; permite que o JavaScript defina as propriedades 'top' e 'left' 
+    para centralizar o container dentro do .scale-wrapper.
+  - background-color: deve ser a cor de fundo do seu layout principal.
+    Se o seu #homepage-container já define um fundo (o que acontece via homepage-styles.css), 
+    esta propriedade aqui pode ser 'transparent' ou uma cor base que será sobrescrita.
+*/
+.scale-container {
+  width: 3840px; 
+  height: 2160px; 
+  transform-origin: top left;
+  position: absolute;
+  /* 'top' e 'left' são definidos dinamicamente via JavaScript para centralização.
+    Exemplo: top: 0px; left: 0px; (será sobrescrito) 
+  */
+  background-color: #ffffff; /* Cor de fundo padrão do conteúdo (Modo Claro). 
+                                 Esta cor será efetivamente a cor de fundo da sua HomePage
+                                 e será sobrescrita pelo body[data-theme='dark'] #homepage-container .bg-white 
+                                 (ou similar) no seu homepage-styles.css para o modo escuro. */
+  /* Adiciona uma transição suave para a escala e posicionamento, se desejado.
+     Pode causar um leve "salto" inicial se o JS demorar para aplicar. Teste o impacto. */
+  /* transition: transform 0.25s ease-out, top 0.25s ease-out, left 0.25s ease-out; */
+}
+
+/*
+  .scaled:
+  - Classe aplicada ao .scale-container via JavaScript.
+  - Aplica a transformação de escala usando a variável CSS --scale-factor, 
+    que é definida pelo JavaScript.
+*/
+.scaled {
+  transform: scale(var(--scale-factor));
+}
+
+/* NOTA SOBRE RESPONSIVIDADE DO CONTEÚDO INTERNO:
+  Esta abordagem de "ScaleWrapper" torna o layout inteiro responsivo por meio de escalonamento.
+  Isso significa que todos os elementos internos, incluindo tamanhos de fonte, paddings, margens, 
+  e até mesmo sombras e animações (como o translateY no hover do botão), serão escalonados 
+  proporcionalmente.
+
+  Isso difere do design responsivo tradicional, onde os elementos podem refluir,
+  mudar de layout (ex: colunas empilhando em telas menores), ou ter tamanhos de fonte
+  que se adaptam de forma diferente do resto do layout.
+
+  Se você precisar de um comportamento de reflow mais tradicional para o conteúdo DENTRO 
+  do .scale-container em escalas muito pequenas, seria necessário implementar lógicas 
+  adicionais (possivelmente com JavaScript para detectar o fator de escala e aplicar classes, 
+  ou usando unidades relativas de forma muito cuidadosa dentro do conteúdo), 
+  o que complexificaria a abordagem.
+
+  Para a maioria dos casos de "dashboard de tela grande que precisa caber em telas menores",
+  o escalonamento é uma solução eficaz e mais simples de implementar.
+*/
+
+/* Os estilos para .custom-button:hover, @keyframes fadeInOutSlogan, .slogan-animation, 
+  e .myVirtualKeyboardTheme .hg-button que estavam no seu exemplo de 
+  homepage-scale-solution.css devem permanecer no seu arquivo homepage-styles.css,
+  pois eles estilizam o *conteúdo* dentro do .scale-container, e não o mecanismo
+  de escalonamento em si.
+*/

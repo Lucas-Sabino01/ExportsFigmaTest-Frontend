@@ -1,0 +1,127 @@
+/* profile-styles.css - TEMA ESCURO */
+
+/* Se não importou no login-styles.css ou globalmente, adicione a fonte */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    /* Garanta que o body não tenha margens que interfiram no 100vh */
+    margin: 0; 
+}
+
+.profile-page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* Ocupa a altura total da viewport */
+    padding: 1.5rem; /* 24px */
+    box-sizing: border-box;
+    background: #111827; /* Tailwind bg-gray-900 */
+    background-image: linear-gradient(145deg, #1f2937 0%, #111827 70%, #000000 100%); /* Gradiente escuro sofisticado */
+    color: #d1d5db; /* Tailwind gray-300 - cor de texto padrão clara */
+}
+
+.profile-card {
+    background-color: rgba(31, 41, 55, 0.5); /* Tailwind bg-gray-800 com opacidade */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2rem 2.5rem; /* 32px 40px */
+    border-radius: 0.75rem; /* 12px - rounded-xl */
+    box-shadow: 0 20px 30px -15px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 550px; 
+    text-align: left;
+}
+
+.profile-title {
+    font-size: 1.875rem; /* 30px - text-3xl */
+    font-weight: 700; /* font-bold */
+    color: #ffffff;
+    margin-bottom: 2rem; /* 32px */
+    text-align: center;
+    letter-spacing: -0.02em;
+}
+
+.profile-info-section {
+    margin-bottom: 2rem; /* 32px */
+}
+
+.profile-details-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.profile-details-list li {
+    font-size: 1rem; /* 16px - text-base */
+    color: #9ca3af; /* Tailwind gray-400 */
+    padding: 0.75rem 0; /* 12px */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08); /* Separador sutil */
+    display: flex; /* Para alinhar label e valor */
+    justify-content: space-between;
+}
+
+.profile-details-list li:last-child {
+    border-bottom: none;
+}
+
+.profile-details-list li strong {
+    color: #e5e7eb; /* Tailwind gray-200 */
+    margin-right: 1rem; /* 16px */
+    font-weight: 600; /* font-semibold */
+}
+
+.profile-loading,
+.profile-error,
+.profile-no-data {
+    font-size: 1rem;
+    padding: 1.5rem;
+    text-align: center;
+    color: #9ca3af; /* Tailwind gray-400 */
+    background-color: rgba(55, 65, 81, 0.3); /* Tailwind bg-gray-700 com opacidade */
+    border-radius: 0.5rem; /* rounded-lg */
+}
+
+.profile-error {
+    color: #fca5a5; /* Tailwind text-red-300 */
+    background-color: rgba(153, 27, 27, 0.3); /* Tailwind bg-red-800 com opacidade */
+}
+
+.profile-actions-section {
+    margin-top: 2rem; /* 32px */
+    text-align: center;
+}
+
+.profile-button {
+    background-color: #009B3A; /* Verde Valmet (exemplo) ou outra cor de destaque */
+    color: white;
+    padding: 0.75rem 1.5rem; /* 12px 24px */
+    border: none;
+    border-radius: 0.5rem; /* rounded-lg */
+    font-size: 1rem; /* text-base */
+    font-weight: 600; /* font-semibold */
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, transform 0.1s ease;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
+}
+
+.profile-button:hover {
+    background-color: #007A2F; /* Tom mais escuro do verde Valmet */
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
+}
+
+.profile-button:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 155, 58, 0.5); /* Anel de foco na cor do botão */
+}
+
+/* Ajustes para o layout da lista de detalhes */
+.profile-details-list li span:last-child { /* Assume que o valor é o último span ou texto direto */
+    text-align: right;
+    word-break: break-all; /* Para emails longos não quebrarem o layout */
+}

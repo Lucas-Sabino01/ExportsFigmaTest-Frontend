@@ -1,0 +1,12 @@
+/* Remove todos os elementos indesejados do Bryntum */
+.b-branding, 
+a[href*="bryntum.com/download"],
+.b-watermark {
+    display: none !important;
+}
+
+/* Remove background padrão */
+.b-grid-base, .b-gantt {
+    background-image: none !important;
+    background-color: transparent !important;
+}

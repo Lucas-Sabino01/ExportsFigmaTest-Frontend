@@ -1,0 +1,238 @@
+/* src/styles/login-styles.css */
+
+/* Importar uma fonte do Google Fonts (exemplo: Inter) - coloque no topo do seu CSS ou no index.html */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+body { /* Aplicar a fonte ao corpo para consistência */
+    font-family: 'Inter', sans-serif;
+}
+
+/* Container principal da página de login */
+.login-page-container {
+    display: flex;
+    flex-direction: column; /* Para alinhar logo e card verticalmente */
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 1rem;
+    box-sizing: border-box;
+    /* Efeito de fundo mais moderno - gradiente sutil ou imagem */
+    background: #111827; /* Tailwind bg-gray-900 - um fundo escuro base */
+    /* Opção 1: Gradiente Sutil */
+    background-image: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+    /* Opção 2: Imagem de fundo (descomente e ajuste o caminho) */
+    /* background-image: url('/path/to/your/background-image.jpg'); */
+    /* background-size: cover; */
+    /* background-position: center; */
+}
+
+/* Logo da Valmet (Opcional - adicione o JSX para ele acima do .login-form-card) */
+.login-logo-container {
+    margin-bottom: 2rem; /* Espaço entre o logo e o card */
+}
+
+.login-logo-container img {
+    max-width: 200px; /* Ajuste o tamanho do logo */
+    height: auto;
+}
+
+
+/* Card do formulário de login */
+.login-form-card {
+    background-color: rgba(255, 255, 255, 0.05); /* Fundo branco com transparência para efeito glassmorphism */
+    backdrop-filter: blur(10px); /* Efeito de desfoque no fundo */
+    -webkit-backdrop-filter: blur(10px); /* Para Safari */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Borda sutil translúcida */
+    box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.3), 0 4px 15px -2px rgba(0, 0, 0, 0.2); /* Sombra mais profunda */
+    border-radius: 0.75rem; /* Tailwind rounded-lg */
+    padding: 2.5rem;
+    max-width: 450px; /* Largura máxima */
+    width: 100%;
+    box-sizing: border-box;
+    color: #f3f4f6; /* Texto claro para contraste com fundo escuro */
+}
+
+/* Título do formulário */
+.login-title {
+    font-size: 1.875rem; /* Tailwind text-2xl ou 3xl */
+    font-weight: 600; /* Tailwind font-semibold */
+    color: #ffffff; /* Branco para contraste */
+    text-align: center;
+    margin-bottom: 2rem; /* Mais espaço abaixo do título */
+}
+
+/* Estilos para os rótulos (labels) dos campos */
+.login-label {
+    display: block;
+    font-size: 0.875rem; /* text-sm */
+    font-weight: 500; /* font-medium */
+    color: #d1d5db; /* Tailwind text-gray-300 - cor clara para label */
+    margin-bottom: 0.5rem; /* Espaçamento abaixo do label */
+}
+
+/* Estilos para os campos de input */
+.login-input {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    background-color: rgba(255, 255, 255, 0.08); /* Fundo do input levemente translúcido */
+    border: 1px solid rgba(255, 255, 255, 0.15); /* Borda do input */
+    border-radius: 0.375rem; /* rounded-md */
+    font-size: 1rem;
+    color: #f3f4f6; /* Texto do input claro */
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+.login-input::placeholder { /* Estilizar o placeholder */
+    color: #9ca3af; /* Tailwind text-gray-400 */
+    opacity: 0.7;
+}
+
+.login-input:focus {
+    outline: none;
+    border-color: #3b82f6; /* Tailwind blue-500 - ou uma cor de destaque da Valmet */
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3); /* Anel de foco */
+}
+
+/* Estilos para mensagens de erro */
+.login-error-message {
+    margin-top: 0.35rem;
+    font-size: 0.875rem;
+    color: #f87171; /* Tailwind text-red-400 - um vermelho mais suave para tema escuro */
+}
+
+/* Estilos para o botão de submissão */
+.login-submit-button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Para alinhar texto/ícone se houver */
+    padding: 0.85rem 1.5rem;
+    border: none;
+    margin-top: 1.75rem; /* Mais espaço acima do botão */
+    border-radius: 0.375rem;
+    font-size: 1rem;
+    font-weight: 600; /* font-semibold */
+    color: #ffffff;
+    /* Cor de destaque da Valmet (exemplo: verde Valmet se tiver um) ou azul */
+    background-color: #009B3A; /* Verde Valmet como exemplo - SUBSTITUA PELA COR DESEJADA */
+    /* Ou um gradiente para o botão: */
+    /* background-image: linear-gradient(to right, #009B3A, #007A2F); */
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1); /* Sombra sutil */
+}
+
+.login-submit-button:hover {
+    background-color: #007A2F; /* Tom mais escuro do verde Valmet no hover */
+    /* Se usar gradiente, ajuste as cores do hover */
+    /* background-image: linear-gradient(to right, #007A2F, #005C24); */
+    box-shadow: 0 6px 10px -1px rgba(0,0,0,0.15), 0 4px 6px -2px rgba(0,0,0,0.1);
+}
+
+.login-submit-button:active {
+    transform: translateY(1px); /* Efeito de clique */
+}
+
+.login-submit-button:focus-visible { /* Melhor que :focus para acessibilidade com teclado */
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 155, 58, 0.4); /* Anel de foco na cor do botão */
+}
+
+.login-submit-button:disabled {
+    background-color: #9ca3af; /* Tailwind gray-400 */
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* Link "Esqueceu sua senha?" */
+.forgot-password-link {
+    display: inline-block; /* Para que a margem funcione melhor */
+    margin-top: 1rem; /* Espaçamento consistente */
+    font-size: 0.875rem;
+    color: #9ca3af; /* Tailwind text-gray-400 */
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+
+.forgot-password-link:hover {
+    color: #60a5fa; /* Tailwind text-blue-400 */
+    text-decoration: underline;
+}
+
+/* Ajustes de Responsividade para telas muito grandes (se necessário manter) */
+/* As classes base já devem ser bem responsivas. Este @media pode ser opcional. */
+@media (min-width: 1920px) {
+    .login-form-card {
+        max-width: 500px;
+        padding: 3rem;
+    }
+    .login-title {
+        font-size: 2.25rem;
+    }
+    /* ... outros ajustes se necessário ... */
+}
+/* Adicione ao seu login-styles.css */
+
+/* Container para os links abaixo do formulário (Esqueceu senha e Registrar) */
+.login-extra-links {
+  margin-top: 1.5rem; /* Ajuste conforme necessário, similar ao seu mt-6 */
+  text-align: center;
+  font-size: 0.875rem; /* text-sm */    /* Cor base para o texto "Não tem uma conta?" (Tailwind gray-400) */
+  display: flex;
+  flex-direction: column; /* Para empilhar os links se necessário */
+  gap: 0.5rem; /* Espaço entre o link "Esqueceu senha" e "Não tem conta" */
+}
+
+/* Estilo para o texto "Não tem uma conta?" */
+.login-extra-links p {
+  margin: 0; /* Remove margens padrão do parágrafo */
+  color: #9ca3af; /* Garante a cor do texto */
+}
+
+/* Estilo específico para o link "Registe-se" */
+.login-extra-links .register-link-inline {
+  font-weight: 500; /* font-medium */
+  color: #60a5fa;   /* Azul claro (Tailwind blue-400) */
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+.login-extra-links .register-link-inline:hover {
+  color: #3b82f6; /* Azul um pouco mais escuro no hover (Tailwind blue-500) */
+  text-decoration: underline;
+}
+/* Adicione ou ajuste esta seção no seu login-styles.css */
+
+.forgot-password-link {
+  /* Reset de estilos de botão para parecer um link */
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  
+  /* Estilos visuais do link */
+  display: inline-block; /* Permite margin-top e bom comportamento de layout */
+  margin-top: 1rem;    /* Espaçamento acima */
+  font-family: 'Inter', sans-serif; /* Garante a mesma fonte */
+  font-size: 0.875rem; /* text-sm */
+  font-weight: 500;    /* font-medium (opcional, para dar um pouco mais de destaque) */
+  color: #9ca3af;       /* Cor base (Tailwind text-gray-400) */
+  text-decoration: none; /* Remove sublinhado padrão */
+  transition: color 0.2s ease-in-out, text-decoration 0.2s ease-in-out;
+}
+
+.forgot-password-link:hover {
+  color: #60a5fa;       /* Cor no hover (Tailwind text-blue-400) */
+  text-decoration: underline; /* Adiciona sublinhado no hover */
+}
+
+.forgot-password-link:focus {
+  outline: none; /* Remove o outline padrão do botão no foco */
+}
+
+.forgot-password-link:focus-visible {
+  outline: 2px solid #3b82f6; /* Adiciona um outline visível para acessibilidade com teclado */
+  outline-offset: 2px;
+  border-radius: 2px; /* Opcional, para o anel de foco */
+}
