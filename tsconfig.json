@@ -42,7 +42,11 @@
     "src/**/*",
     "src/**/*.ts",
     "src/**/*.tsx",
-    "vite.config.ts"
+    "vite.config.ts",
+    "src/**/*.js",
+    "src/**/*.json",
+    "src/pages/KanbanPage/planka-master/**/*.js",
+    "src/pages/KanbanPage/planka-master/**/*.json"
   ],
   "exclude": [
     "node_modules",

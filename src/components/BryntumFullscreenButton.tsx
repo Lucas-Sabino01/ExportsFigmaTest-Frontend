@@ -2,7 +2,7 @@
  * React Fullscreen button wrapper
  */
 
-import React, { createRef, Component, ReactNode } from 'react';
+import { createRef, Component, ReactNode } from 'react';
 import { Button, Fullscreen } from '@bryntum/gantt';
 
 export class BryntumFullscreenButton extends Component {
